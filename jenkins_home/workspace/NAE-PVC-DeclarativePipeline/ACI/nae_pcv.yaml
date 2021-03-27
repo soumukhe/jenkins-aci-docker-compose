@@ -8,17 +8,17 @@
   gather_facts: no
   vars:
     nae_login: &nae_login
-        host: 10.0.7.11
+        host: "put IP of NAE here"
         username: admin
-        password: soumu101  
-    PreChangeAnalysisName: Jenkins3_27-1
+        password: "put password of NAE here"
+    PreChangeAnalysisName: Jenkins3_27-1    # this will be the name of the Pre Change Verification in NAE
     validate_certs: False
   
   tasks:
     - name: Create a pre-change analysis
       cisco.nae.nae_prechange:
         <<: *nae_login
-        ag_name: "DMZ-RCDN-Site1"
+        ag_name: "DMZ-RCDN-Site1" #  make sure to have the correct site name as shown in NAE
         name: "{{ PreChangeAnalysisName }}"
         state: present
         verify: true
@@ -27,7 +27,7 @@
     - name: Get PCV Result
       cisco.nae.nae_prechange:
         <<: *nae_login
-        ag_name: "DMZ-RCDN-Site1"
+        ag_name: "DMZ-RCDN-Site1"  #  make sure to have the correct site name as shown in NAE
         name: "{{ PreChangeAnalysisName }}"
         state: query
         verify: True
