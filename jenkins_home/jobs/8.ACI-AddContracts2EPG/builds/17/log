@@ -1,0 +1,14 @@
+Started by user [8mha:////4BqKMJIbD7tx/2mxod/TotshDosuXl20ZLwsebMOuInLAAAAlx+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzWEgZu/dLi1CL95Mzi5HwAVHxmPsAAAAA=[0mcisco
+Running as SYSTEM
+Building in workspace /var/jenkins_home/workspace/8.ACI-AddContracts2EPG
+[8mha:////4Begs7pE8ccdqrjr33BIpxk/6FtsrlU0v0CWxxTzJ4mYAAAAqh+LCAAAAAAAAP9b85aBtbiIQSujNKU4P0+vIKc0PTOvWC8xrzgzOT8nv0gvMbkkEyjhCKb88ktSdwVsu2efuqidiYHRh4EDIu2ZUsIg5JOVWJaon5OYl64fXFKUmZduXVHEIAU1ODk/rzg/J1XPGUKDDGKAAEYmBoaKghIGlTSzlGQDM5MUXcOkZFNdEwuTRF2LRANj3SQg39zcwiLV2MIcAIdGDISvAAAA[0m[8.ACI-AddContracts2EPG] $ ansible-playbook /myJenkinsData/Ansible/APIC/8.add-Contracts2EPG.yaml -i /myJenkinsData/Ansible/APIC/hosts -f 5 -e host=dmzapic8 -e username=ansible -e tenant=sm-Jenkins-Ansible -e private_key=./certs/ansible.key -e certificate_name=ansible -e vrf_name=$vrf_name -e bdname=$BDNAME -e bdIp=$bdIp -e bdMask=$bdMask -e app_profile_name=smApplication1 -e filter_name=$filter_name -e entry_name=$entry_name -e contract_name=C1 -e subject_name=$subject_name -e ether_type1=$ether_type1 -e ip_protocol1=$ip_protocol1 -e dst_port1=$dst_port1 -e reverse_filter=$reverse_filter -e epg_name=webEPG -e contract_type=provider
+
+PLAY [Add a tenant] ************************************************************
+
+TASK [Create web_epg contract] *************************************************
+[0;33mchanged: [dmzapic8 -> localhost][0m
+[0;33m[0m
+PLAY RECAP *********************************************************************
+[0;33mdmzapic8[0m                   : [0;32mok=1   [0m [0;33mchanged=1   [0m unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
+Finished: SUCCESS

@@ -1,0 +1,13 @@
+Started on Mar 25, 2021 6:13:48 PM
+Started by event from 140.82.115.155 ⇒ http://173.37.213.71:8080/github-webhook/ on Thu Mar 25 18:13:47 UTC 2021
+Using strategy: Default
+[poll] Last Built Revision: Revision 69af91dcbee0b0323f8e8defa8e67457ebf8ebb7 (refs/remotes/origin/master)
+The recommended git tool is: NONE
+No credentials specified
+ > /usr/bin/git --version # timeout=10
+ > git --version # 'git version 2.20.1'
+ > /usr/bin/git ls-remote -h -- https://github.com/soumukhe/jenkinsWebhook.git # timeout=10
+Found 1 remote heads on https://github.com/soumukhe/jenkinsWebhook.git
+[poll] Latest remote head revision on refs/heads/master is: 4b0bb0cda0e4b2246fda8d1b4faa1ada4e1a6be4
+Done. Took 0.33 sec
+Changes found

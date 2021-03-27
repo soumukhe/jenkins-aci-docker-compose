@@ -1,0 +1,29 @@
+Started by an SCM change
+Running as SYSTEM
+Building in workspace /var/jenkins_home/workspace/gitTest
+The recommended git tool is: NONE
+No credentials specified
+ > /usr/bin/git rev-parse --is-inside-work-tree # timeout=10
+Fetching changes from the remote Git repository
+ > /usr/bin/git config remote.origin.url https://github.com/soumukhe/jenkinsTest.git # timeout=10
+Fetching upstream changes from https://github.com/soumukhe/jenkinsTest.git
+ > /usr/bin/git --version # timeout=10
+ > git --version # 'git version 2.20.1'
+ > /usr/bin/git fetch --tags --force --progress -- https://github.com/soumukhe/jenkinsTest.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > /usr/bin/git rev-parse refs/remotes/origin/master^{commit} # timeout=10
+Checking out Revision 69948d8857b479c86cabbc8486d40ecf1071dd12 (refs/remotes/origin/master)
+ > /usr/bin/git config core.sparsecheckout # timeout=10
+ > /usr/bin/git checkout -f 69948d8857b479c86cabbc8486d40ecf1071dd12 # timeout=10
+Commit message: "change"
+ > /usr/bin/git rev-list --no-walk 2879d7bb3a70f91b56462555747588bc7d6afad1 # timeout=10
+[8mha:////4A1p62f6+OFVf09qD3/2OtvX/kxso3n8IAMqdg3xyIhzAAAAqx+LCAAAAAAAAP9b85aBtbiIQSujNKU4P0+vIKc0PTOvWC8xrzgzOT8nv0gvMbkkEyjhCKb88ktSdwVsu2efuqidiYHRh4EDIu2ZUsIg5JOVWJaon5OYl64fXFKUmZduXVHEIAU1ODk/rzg/J1XPGUKDDGKAAEYmBoaKghIGFUND0zRTI1MDXeM0y1Rdk6QkC13LFEtjXbNUM2ND48Q08yQjUwAWnVc1rwAAAA==[0m[gitTest] $ ansible-playbook /var/jenkins_home/workspace/gitTest/addbd.yaml -i /var/jenkins_home/workspace/gitTest/hosts -f 5
+
+PLAY [Add a tenant] ************************************************************
+
+TASK [Creating BD] *************************************************************
+[0;33mchanged: [dmzapic8 -> localhost][0m
+[0;33m[0m
+PLAY RECAP *********************************************************************
+[0;33mdmzapic8[0m                   : [0;32mok=1   [0m [0;33mchanged=1   [0m unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
+Finished: SUCCESS

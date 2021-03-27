@@ -1,0 +1,28 @@
+---
+- name: Add a tenant
+  hosts: '{{ host }}'
+  gather_facts: no
+  connection: local
+
+  #  vars_files:
+  #    - apic-vars.yaml 
+
+
+  tasks:
+
+
+    - name: Creating BD
+      aci_bd:
+        host: "{{host}}"
+        username: "{{ username }}"
+        private_key:  "{{ private_key }}"
+        certificate_name: "{{ certificate_name }}"
+        validate_certs: no
+        tenant: "{{ tenant }}"
+        vrf_name: "{{ vrf_name }}"
+        bd: "{{bdname}}"
+        state: present
+        use_proxy: no
+      delegate_to: localhost
+    
+# usage: ansible-playbook  add_bd.yaml -i hosts -vvv

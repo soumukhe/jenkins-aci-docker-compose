@@ -1,0 +1,23 @@
+---
+# Note: This playbook is only to illustrate all module functionality. Running both add from change list and add from file 
+#       will fail since only one PCA can run on NAE at a time.
+- name: NAE TESTING
+  hosts: all
+  vars:
+    nae_login: &nae_login
+        host: 10.66.176.111
+        port: 443  
+        username: admin
+        password: C@ndidadmin1234
+    validate_certs: False
+  tasks:
+  #- name: Create offline ag
+    #nae_ag:
+      #<<: *nae_login
+      #name: Test
+      #state: present
+  - name: Create Online Assurance Group (with APIC Configuration Export Polciy)
+    nae_ag:
+      <<: *nae_login
+      state: query
+...

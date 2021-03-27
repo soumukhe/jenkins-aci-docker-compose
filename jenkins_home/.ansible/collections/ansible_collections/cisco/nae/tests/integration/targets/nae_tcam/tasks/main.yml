@@ -1,0 +1,100 @@
+# Test code for the NAE modules
+# Copyright: (c) 2020, Cindy Zhao (cizhao) <cizhao@cisco.com>
+
+# GNU General Public License v3.0+ (see LICENSE or https://www.gnu.org/licenses/gpl-3.0.txt)
+
+- name: Test that we have an NAE host, NAE username and NAE password
+  fail:
+    msg: 'Please define the following variables: nae_host, nae_username and nae_password.'
+  when: nae_host is not defined or nae_username is not defined or nae_password is not defined
+
+- name: Set vars
+  set_fact: 
+    nae_info: &nae_info
+      host: '{{ nae_host }}'
+      username: '{{ nae_username }}'
+      password: '{{ nae_password }}'
+      validate_certs: '{{ nae_validate_certs | default(false) }}'
+
+# Testing module login
+- name: Get tcam results (wrong username)
+  nae_tcam:
+    <<: *nae_info
+    username: incorrect_username
+    ag_name: Change Management
+  ignore_errors: yes
+  register: wrong_username
+
+- name: Get tcam results (wrong password)
+  nae_tcam:
+    <<: *nae_info
+    password: incorrect_password
+    ag_name: Change Management
+  ignore_errors: yes
+  register: wrong_password
+
+- name: Get tcam results (wrong host)
+  nae_tcam:
+    <<: *nae_info
+    host: incorrect_host
+    ag_name: Change Management
+  ignore_errors: yes
+  register: wrong_host
+
+- name: Get tcam results (google host)
+  nae_tcam:
+    <<: *nae_info
+    host: 'google.com'
+    ag_name: Change Management
+  ignore_errors: yes
+  register: google_host
+
+- name: Verify invalid credentials
+  assert:
+    that:
+      - wrong_username is not changed
+      - wrong_password is not changed
+      - wrong_host is not changed
+      - google_host is not changed
+      - wrong_username.msg == wrong_password.msg == 'Invalid username and/or password'
+      - wrong_host.msg == 'Request failed{{':'}} <urlopen error [Errno -2] Name or service not known>'
+      - google_host.msg == 'HTTP Error 404{{':'}} Not Found'
+
+# Testing nae_tcam module
+- name: Check whether AG Change Management exists
+  include_tasks: ../../../../../../integration/targets/nae_compliance/tasks/create_ag.yml
+  tags: create_ag
+  when: check_ag.msg is defined and check_ag.msg == "Assurance group Change Management does not exist"
+
+- name: Get tcam results
+  nae_tcam:
+    <<: *nae_info
+    ag_name: Change Management
+  register: result_tcam
+
+- name: Get tcam results and write to local csv file
+  nae_tcam:
+    <<: *nae_info
+    ag_name: Change Management
+    file: tcam_data
+  register: result_tcam_data
+
+- name: Verify tcam_data
+  assert:
+    that:
+      - result_tcam is not changed
+      - result_tcam.tcam[0][0].bucket.action == 'PERMIT'
+      - result_tcam_data is changed
+      - result_tcam_data.msg is match ('Pages extracted [0-9]* to file tcam_data.csv')
+
+- name: Use incorrect params
+  nae_tcam:
+    <<: *nae_info
+  ignore_errors: yes
+  register: incorrect_params
+
+- name: Verify incorrect_params
+  assert:
+    that:
+      - incorrect_params is not changed
+      - incorrect_params.msg == "Incorrect parameters passed"

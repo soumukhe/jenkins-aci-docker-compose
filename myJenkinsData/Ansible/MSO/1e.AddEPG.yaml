@@ -1,0 +1,49 @@
+---
+
+- name: add ANP & EPG
+  hosts: mso
+  connection: local
+  gather_facts: false
+
+  vars_files:
+    - external_vars.yml
+
+  tasks:      
+    - name: Add a new ANP
+      cisco.mso.mso_schema_template_anp:
+        host: "{{ host }}"
+        username: "{{ username }}"
+        password: "{{ password }}"
+        validate_certs: "no"
+        use_proxy: false
+        schema: "{{ schema }}"
+        template: "{{ template }}"
+        anp: "{{ anp }}"
+        state: present
+      delegate_to: localhost
+
+    - name: Add a new EPG WEB
+      cisco.mso.mso_schema_template_anp_epg:
+        host: "{{ host }}"
+        username: "{{ username }}"
+        password: "{{ password }}"
+        validate_certs: "no"
+        use_proxy: false
+        schema: "{{ schema }}"
+        template: "{{ template }}"
+        anp: "{{ anp }}"
+        epg: "{{ epg1 }}"
+        bd: 
+          name:  "{{ bd }}"
+        state: present
+      delegate_to: localhost      
+      
+      
+      
+      
+      
+      
+# usage: ansible-playbook --ask-vault-pass 1e.AddEPG.yaml -i hosts -vvv
+# usage: ansible-playbook --vault-id vaultPass 1e.AddEPG.yaml -i hosts -vvv
+# mso_schema_template_anp – Manage Application Network Profiles (ANPs) in schema templates: https://docs.ansible.com/ansible/latest/modules/mso_schema_template_anp_module.html#mso-schema-template-anp-module
+# mso_schema_template_anp_epg – Manage Endpoint Groups (EPGs) in schema templates: https://docs.ansible.com/ansible/latest/modules/mso_schema_template_anp_epg_module.html#mso-schema-template-anp-epg-module

@@ -1,0 +1,495 @@
+{
+ "files": [
+  {
+   "name": ".",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": ".DS_Store",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "0a17358b8109787a7ec57fb0c2c0b00035a1ec6a7ae4d8789cd953bd9d5c1cbe",
+   "format": 1
+  },
+  {
+   "name": "LICENSE",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "1c38eb11b6b8cd591aed90793ca80bd3c499393f207b96640ddfa571f61f7b4f",
+   "format": 1
+  },
+  {
+   "name": "plugins",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "plugins/module_utils",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "plugins/module_utils/nae.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "ccb0c82d2746775ee652f51b7a60f0ca821edca6703b1fbdc66b31abc9adcea2",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/nae_tcam.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "32eac37cf35539d4a685462c6b8360fb281b51a824e2535a63c3dafcae443715",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/nae_prechange.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "a76b45055c4515884742188afe8fdd22a5826b67cb41f4661044af4efe6691f0",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/nae_delta.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "a789b6f3163234577a5409b021198c65d10eb03c511fc2f078dd62abce9e9a0d",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/nae_compliance.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "74581798a14b6d514d357eac25942845392e4b960b91dfccaf8dbe68a52a7abd",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/nae_ag.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "b2434ac041a6b6624fe0fda74de8dbbe4ae20e3842de7c5bf213686eb41fa6a3",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/nae_file_management.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "a180ccc0925ac19edbc993300dea0ea5874f682f93da7eeee65973435ebd8272",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/nae_offline_analysis.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "531131583abfc69ce6b6de549ad08977efb6a176ffc6096b54efa4a71267b7b2",
+   "format": 1
+  },
+  {
+   "name": ".coverage",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "e23c6c48f0bc73f9bd36935f0f280d3615cae68949520d1b735e7b09db66c81e",
+   "format": 1
+  },
+  {
+   "name": "tests",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/nae_prechange",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/nae_prechange/tasks",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/nae_prechange/tasks/file_upload.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "3bfd3b93bcaa4862c8c806ac9e20075009f49dd6e8859be8a4e37f44dbc22e40",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/nae_prechange/tasks/ansible_dump.json",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "1e9615d897e6e02f09c024650625a2f835dfea1b8903b1880504ca5bb2d10b0b",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/nae_prechange/tasks/contract_identical.json",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "dd415561026cec5bd54ce09d888a2516d4a57fcc1e4cb5d42d726c3560e7f694",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/nae_prechange/tasks/manual_upload.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "c83a9e09e5dd4270042eb8e71f82e627e90ba42a8fa1a84d09b66f438f66e074",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/nae_prechange/tasks/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "39429654157bf4ff7588e31203464f94a6706af0af293bec7d7779e709bce3b2",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/nae_prechange/tasks/contract.json",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "dd415561026cec5bd54ce09d888a2516d4a57fcc1e4cb5d42d726c3560e7f694",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/nae_prechange/aliases",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "fa8eb5ed80d4204ae33cc4096a77d1b935a9d244ed8549c84751d5ca478a1eeb",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/nae_tcam",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/nae_tcam/tasks",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/nae_tcam/tasks/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "68d4751e665f931c4f230658ca21d01dfe26fbe24e799206c34b004c443df582",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/nae_tcam/aliases",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "fa8eb5ed80d4204ae33cc4096a77d1b935a9d244ed8549c84751d5ca478a1eeb",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/nae_compliance",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/nae_compliance/tasks",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/nae_compliance/tasks/create_ag.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "e0cb9202563911e370496c619e0d01b08a8235e83018caf8a5846c3fb393683c",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/nae_compliance/tasks/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "86316c3db72477e44aa7325d02d9b0e7765846960df46b2da9aa995dbd2b2aff",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/nae_compliance/aliases",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "fa8eb5ed80d4204ae33cc4096a77d1b935a9d244ed8549c84751d5ca478a1eeb",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/nae_ag",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/nae_ag/tasks",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/nae_ag/tasks/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "ec7be9c2f9788129ea42f615a1c910a2f4f0ec698d4ed43228bd0648a869de29",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/nae_ag/aliases",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "fa8eb5ed80d4204ae33cc4096a77d1b935a9d244ed8549c84751d5ca478a1eeb",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/network-integration.requirements.txt",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "f41e453fdbe9b52d929d99c6b10ea169b1a3329d0811b3799956dc1604dc3205",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/target-prefixes.network",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "c02a2cd11dd48f386f134b66228c64dba99e5e12b91c0d3fff34cb16ba7d7d25",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/inventory.networking",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "2ac51ca5654032398ac9f46b4b86bc08c0c4f34ebc0ce3e9996252233e24c8b3",
+   "format": 1
+  },
+  {
+   "name": "tests/sanity",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/sanity/requirements.txt",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "9852a345b01aeac39927336a86b4febc4f3fe434f7ea33b4d094e004625cc7d7",
+   "format": 1
+  },
+  {
+   "name": "tests/sanity/ignore-2.10.txt",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "3a146106e14726144bcc4188d065a879358d3d1ecc9706cdbfeaf3cd0e44308c",
+   "format": 1
+  },
+  {
+   "name": "tests/sanity/ignore-2.9.txt",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "f4b5ae7461bc4c402cea68a23a48a6656d76a4e388b2b241002273524a1e626f",
+   "format": 1
+  },
+  {
+   "name": "playbooks",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "playbooks/usage.yaml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "12444d92072898e8c9e00857067b7e0dfdc345b9221e628be365aa7616d409f8",
+   "format": 1
+  },
+  {
+   "name": "playbooks/nae_create.yaml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "7884f1d921049b8d759c72e16f9e6bfd48f75940d369886f1ffe949020fe225c",
+   "format": 1
+  },
+  {
+   "name": "playbooks/agtest.yaml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "0974199f9b511d7f82096eb513c24dc7ad6f264d830eccd35d6efe359842deae",
+   "format": 1
+  },
+  {
+   "name": "playbooks/nae_comp.yaml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "1025ab9d4174aeed9b1462865e754c4817eb69d0da4f9e273b151e2788c0689b",
+   "format": 1
+  },
+  {
+   "name": "playbooks/dmz.yaml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "02c71908c97839717ef0ee97234b22a356fac5c45e48265879791a273147d4be",
+   "format": 1
+  },
+  {
+   "name": "playbooks/tcam.yaml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "c137f6c93703b30287e3d8b4a8ccb51a81f9a3e8d27f5fcd30338e33c2cd2980",
+   "format": 1
+  },
+  {
+   "name": "playbooks/inventory",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "418df3420d274c26e8c26142607a2121431db4e662edbb4df83a5962afa45ec5",
+   "format": 1
+  },
+  {
+   "name": "playbooks/nae_query.yaml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "555763f59f6f839dddb8dcd592a05f2f6fc7b679161c3a4a3d1c2f352d35e6f8",
+   "format": 1
+  },
+  {
+   "name": "playbooks/full_aci_demo.yaml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "e275dbb5db7612555c6cac2f49d9b5bbf29dfa880c54bb767439395b4eb3a54a",
+   "format": 1
+  },
+  {
+   "name": "changelogs",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "changelogs/config.yaml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "0b24bac485a9c77f629e71b49cb7d67133ca5d0afb9b7650d84d16ce77441ce6",
+   "format": 1
+  },
+  {
+   "name": "changelogs/.gitignore",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "36e1576d110344a7b8c92cf8ed8ec58cd17a8598d7e97cc892e7e5c07ec04c5d",
+   "format": 1
+  },
+  {
+   "name": "changelogs/.plugin-cache.yaml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "d1857a7e70be27d9af8249991e1701b303f0c174e52b55a59b9f98d87acd1a6a",
+   "format": 1
+  },
+  {
+   "name": "changelogs/changelog.yaml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "69090c30588903e780a5446a8cf89b7ecea16d44f96d1a15c3aa94f88b45a0a2",
+   "format": 1
+  },
+  {
+   "name": "README.md",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "c2b5743281c15b160751efef007e410957fc84f439543395ab1a457104c99ceb",
+   "format": 1
+  },
+  {
+   "name": ".gitignore",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "18d8859669eb92a16a01f70c21fc4ba3cc0eec04780c2bddb260de7867a921e6",
+   "format": 1
+  },
+  {
+   "name": ".github",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": ".github/workflows",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": ".github/workflows/ansible-test.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "6738cf85c15b6e57ddac1ea87b09247782782bfbbef978edafe19e4d1fe6d856",
+   "format": 1
+  },
+  {
+   "name": "CHANGELOG.rst",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "752fa465ffaa8c8fe12c19f965e09c1048eccb32f135a8636258722006929ccf",
+   "format": 1
+  },
+  {
+   "name": ".vscode",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": ".vscode/settings.json",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "72493737313af87c8524bc614f45f9c0dec4dc228298f5eaacc5c94d859f7e38",
+   "format": 1
+  }
+ ],
+ "format": 1
+}

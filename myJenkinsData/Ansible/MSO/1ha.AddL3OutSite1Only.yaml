@@ -1,0 +1,112 @@
+---
+
+- name: add schema to Tenant
+  hosts: mso
+  connection: local
+  gather_facts: false
+
+  vars_files:
+    - external_vars.yml
+  tasks:
+    - name: Add a new schema
+      cisco.mso.mso_schema_template:
+        host: "{{ host }}"
+        username: "{{ username }}"
+        password: "{{ password }}"
+        tenant: "{{ tenant }}"
+        schema: "{{ schema }}"
+        template: "SM-Site1-Only"
+        validate_certs: "no"
+        use_proxy: false
+        state: present
+      delegate_to: localhost
+
+    - name: Assocoate schema with site
+      cisco.mso.mso_schema_site:
+        host: "{{ host }}"
+        username: "{{ username }}"
+        password: "{{ password }}"
+        schema: "{{ schema }}"
+        site: "DMZ-RCDN-Site1"
+        validate_certs: "no"
+        use_proxy: false
+        template: "SM-Site1-Only"
+        state: present
+      delegate_to: localhost
+
+    - name: Add a new L3out
+      cisco.mso.mso_schema_template_l3out: 
+        host: "{{ host }}"
+        username: "{{ username }}"
+        password: "{{ password }}"
+        validate_certs: "no"
+        use_proxy: false
+        schema: "{{ schema }}"
+        template: "SM-Site1-Only"  # this is the template where the L3Out will be defined
+        vrf: 
+         name: "sm-VRF1-ansible"
+         schema: "{{ schema }}"
+         template: "SM-Template1-ansible" # this is the template where the vrf is        
+        l3out: "Site1-L3Out"
+        state: present
+      delegate_to: localhost
+
+    - name: Add a new external EPG
+      cisco.mso.mso_schema_template_external_epg:
+        host: "{{ host }}"
+        username: "{{ username }}"
+        password: "{{ password }}"
+        validate_certs: "no"
+        use_proxy: false
+        schema: "{{ schema }}"
+        template: "SM-Site1-Only"  # this is the template where the L3Out will be defined
+        vrf: 
+         name: "sm-VRF1-ansible"
+         schema: "{{ schema }}"
+         template: "SM-Template1-ansible" # this is the template where the vrf is        
+        l3out:
+         name:  "Site1-L3Out"
+         schema: "{{ schema }}"
+        template: "SM-Site1-Only" # this is the template where the L3Out is
+        external_epg: extEPG1
+        state: present
+      delegate_to: localhost
+    
+
+    - name: Add a new subnet to an External EPG
+      cisco.mso.mso_schema_template_external_epg_subnet:
+        host: "{{ host }}"
+        username: "{{ username }}"
+        password: "{{ password }}"
+        validate_certs: "no"
+        use_proxy: false
+        schema: "{{ schema }}"
+        template: "SM-Site1-Only"  # this is the template where the L3Out has been defined
+        external_epg: extEPG1
+        subnet: 10.0.0.0/24
+        scope: import-security  # this equates to "external subnets for the external epg"
+        state: present
+      delegate_to: localhost
+
+    - name: deploy new template for L3Out
+      cisco.mso.mso_schema_template_deploy:
+        host: "{{ host }}"
+        username: "{{ username }}"
+        password: "{{ password }}"
+        validate_certs: "no"
+        use_proxy: false
+        schema: "{{ schema }}"
+        template: "SM-Site1-Only"
+        state: deploy
+      delegate_to: localhost
+
+            
+     
+
+
+
+
+# usage: ansible-playbook --ask-vault-pass 1h.AddL3OutSite1Only.yaml -i hosts -vvv
+# usage: ansible-playbook --vault-id vaultPass 1h.AddL3OutSite1Only.yaml -i hosts -vvv
+# mso_schema – Manage schemas:  https://docs.ansible.com/ansible/latest/modules/mso_schema_module.html#mso-schema-module
+# mso_schema_site – Manage sites in schemas: https://docs.ansible.com/ansible/latest/modules/mso_schema_site_module.html#mso-schema-site-module

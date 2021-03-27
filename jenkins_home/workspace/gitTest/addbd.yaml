@@ -1,0 +1,29 @@
+---
+- name: Add a tenant
+  hosts: 'dmzapic8'
+  gather_facts: no
+  connection: local
+
+  #  vars_files:
+  #    - apic-vars.yaml 
+
+
+  tasks:
+
+
+    - name: Creating BD
+      aci_bd:
+        host: "dmzapic8"
+        username: "ansible"
+        private_key:  "/myJenkinsData/Ansible/APIC/certs/ansible.key"
+        certificate_name: "ansible"
+        validate_certs: no
+        tenant: "sm-Jenkins-Ansible"
+        vrf_name: "SMVRF1"
+        bd: "newBD8"
+        state: present
+        use_proxy: no
+      delegate_to: localhost
+
+
+# Usage: ansible-playbook  addbd.yaml -i hosts -vvv

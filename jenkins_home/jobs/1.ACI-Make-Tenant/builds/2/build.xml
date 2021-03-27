@@ -1,0 +1,32 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<build>
+  <actions>
+    <hudson.model.CauseAction>
+      <causeBag class="linked-hash-map">
+        <entry>
+          <hudson.model.Cause_-UserIdCause>
+            <userId>soumukhe</userId>
+          </hudson.model.Cause_-UserIdCause>
+          <int>1</int>
+        </entry>
+      </causeBag>
+    </hudson.model.CauseAction>
+    <hudson.plugins.ansicolor.action.ColorizedAction plugin="ansicolor@0.7.5">
+      <id>3da40a43-0e47-4833-8400-e47f9a077289</id>
+      <colorMapName>xterm</colorMapName>
+      <command>START</command>
+    </hudson.plugins.ansicolor.action.ColorizedAction>
+  </actions>
+  <queueId>15</queueId>
+  <timestamp>1616543879604</timestamp>
+  <startTime>1616543879609</startTime>
+  <result>SUCCESS</result>
+  <duration>4379</duration>
+  <charset>UTF-8</charset>
+  <keepLog>false</keepLog>
+  <builtOn></builtOn>
+  <workspace>/var/jenkins_home/workspace/ACI-Make-Tenant</workspace>
+  <hudsonVersion>2.284</hudsonVersion>
+  <scm class="hudson.scm.NullChangeLogParser"/>
+  <culprits class="com.google.common.collect.EmptyImmutableSortedSet"/>
+</build>

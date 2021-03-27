@@ -1,0 +1,36 @@
+{
+ "collection_info": {
+  "namespace": "cisco",
+  "name": "nae",
+  "version": "1.0.1",
+  "authors": [
+   "Shantanu Kulkarni (@Shan-KulK) <shankul@cisco.com>"
+  ],
+  "readme": "README.md",
+  "tags": [
+   "cisco",
+   "nae",
+   "cloud",
+   "collection",
+   "networking",
+   "sdn",
+   "assurance"
+  ],
+  "description": "Ansible Modules for Cisco NAE",
+  "license": [],
+  "license_file": "LICENSE",
+  "dependencies": {},
+  "repository": "https://github.com/CiscoDevNet/ansible-nae",
+  "documentation": null,
+  "homepage": "https://github.com/CiscoDevNet/ansible-nae",
+  "issues": "https://github.com/CiscoDevNet/ansible-nae/issues"
+ },
+ "file_manifest_file": {
+  "name": "FILES.json",
+  "ftype": "file",
+  "chksum_type": "sha256",
+  "chksum_sha256": "f61e9023e9764d92a309e48dac5482d3591774a33fa6d7768011b302d61fcbb8",
+  "format": 1
+ },
+ "format": 1
+}

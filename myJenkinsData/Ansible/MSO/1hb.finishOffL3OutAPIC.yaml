@@ -1,0 +1,27 @@
+---
+
+- name: finish by posting to APIC
+  hosts: dmzapic8
+  connection: local
+  gather_facts: false
+
+  vars_files:
+    - external_vars.yml
+ 
+  tasks:
+   - name:  Creating Tenant
+     cisco.aci.aci_rest:
+        host: dmzapic8
+        username: "ansible"
+        use_ssl: yes
+        private_key: "{{ private_key }}"
+        certificate_name: "{{ certificate_name }}"
+        use_proxy: no
+        validate_certs: no
+        path: /api/node/mo/uni/tn-sm-ansible-T1/out-Site1-L3Out.json
+        method: post
+        src: l3outpost.json
+     delegate_to: localhost
+
+
+# ansible-playbook --vault-id vaultPass 1ha.finishOffL3OutAPIC.yaml -i hosts -vvv

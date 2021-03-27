@@ -1,0 +1,27 @@
+---
+
+- name: deploy Schema
+  hosts: mso
+  connection: local
+  gather_facts: false
+
+  vars_files:
+    - external_vars.yml
+
+  tasks:           
+    - name: deploy schema
+      cisco.mso.mso_schema_template_deploy:
+        host: "{{ host }}"
+        username: "{{ username }}"
+        password: "{{ password }}"
+        validate_certs: "no"
+        use_proxy: false
+        schema: "{{ schema }}"
+        template: "{{ template }}"
+        state: deploy
+      delegate_to: localhost
+      
+      
+# usage: ansible-playbook 1g.DeploySchema.yaml   -i hosts -vvv
+# usage: ansible-playbook --vault-id vaultPass 1g.DeploySchema.yaml    -i hosts -vvv
+# mso_schema_template_deploy – Deploy schema templates to sites: https://docs.ansible.com/ansible/latest/modules/mso_schema_template_deploy_module.html#mso-schema-template-deploy-module

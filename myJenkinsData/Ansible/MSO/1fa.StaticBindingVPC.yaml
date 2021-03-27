@@ -1,0 +1,62 @@
+---
+
+- name: add DomainBinding to EPG
+  hosts: mso
+  connection: local
+  gather_facts: false
+
+  vars_files:
+    - external_vars.yml
+
+  tasks:           
+    - name: domain binding to EPG
+      cisco.mso.mso_schema_site_anp_epg_domain:
+        host: "{{ host }}"
+        username: "{{ username }}"
+        password: "{{ password }}"
+        validate_certs: "no"
+        use_proxy: false
+        schema: "{{ schema }}"
+        site: "{{ site2}}"
+        template: "{{ template }}"
+        anp: "{{ anp }}"
+        epg: "{{ epg1 }}"
+        domain_association_type: physicalDomain 
+        domain_profile: phys
+        deployment_immediacy: lazy
+        resolution_immediacy: lazy
+        state: present
+      delegate_to: localhost      
+
+    # Making a VPC Static Binding only for Site 2
+    - name: static binding to EPG
+      cisco.mso.mso_schema_site_anp_epg_staticport:
+        host: "{{ host }}"
+        username: "{{ username }}"
+        password: "{{ password }}"
+        validate_certs: "no"
+        use_proxy: false
+        schema: "{{ schema }}"
+        site: "{{ site2}}"
+        template: "{{ template }}"
+        anp: "{{ anp }}"
+        epg: "{{ epg1 }}"
+        path: "vpc-port-test"
+        type: vpc
+        mode: regular
+        pod: pod-1
+        leaf: 101-102
+        vlan: 1001
+        deployment_immediacy: lazy
+        #resolution_immediacy: lazy
+        state: present
+      delegate_to: localhost
+
+      
+      
+      
+# usage: ansible-playbook --ask-vault-pass 1fa.StaticBindingVPC.yaml   -i hosts -vvv
+# usage: ansible-playbook --vault-id vaultPass 1fa.StaticBindingVPC.yaml    -i hosts -vvv
+# mso_schema_site_anp_epg_domain – Manage site-local EPG domains in schema template: https://docs.ansible.com/ansible/latest/modules/mso_schema_site_anp_epg_domain_module.html#mso-schema-site-anp-epg-domain-module
+# mso_schema_site_anp_epg_staticport – Manage site-local EPG static ports in schema template– https://docs.ansible.com/ansible/latest/modules/mso_schema_site_anp_epg_staticport_module.html#mso-schema-site-anp-epg-staticport-module
+# Notice:  I'm using the ansible-collection module cisco.mso.mso_schema_site_anp_epg_domain & cisco.mso.mso_schema_site_anp_epg_staticport  here instead of the regular ansible module mso_schema_site_anp_epg_domain 

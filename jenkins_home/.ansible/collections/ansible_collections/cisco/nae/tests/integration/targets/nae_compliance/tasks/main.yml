@@ -1,0 +1,929 @@
+# Test code for the NAE modules
+# Copyright: (c) 2020, Cindy Zhao (cizhao) <cizhao@cisco.com>
+
+# GNU General Public License v3.0+ (see LICENSE or https://www.gnu.org/licenses/gpl-3.0.txt)
+
+- name: Test that we have an NAE host, NAE username and NAE password
+  fail:
+    msg: 'Please define the following variables: nae_host, nae_username and nae_password.'
+  when: nae_host is not defined or nae_username is not defined or nae_password is not defined
+
+- name: Set vars
+  set_fact:
+    nae_info: &nae_info
+      host: '{{ nae_host }}'
+      username: '{{ nae_username }}'
+      password: '{{ nae_password }}'
+      validate_certs: '{{ nae_validate_certs | default(false) }}'
+
+- name: Get NAE Uploaded Files
+  cisco.nae.nae_file_management:
+    <<: *nae_info
+    state: query
+  register: nae_files
+
+- name: Disassociated requirement set from ag
+  cisco.nae.nae_compliance:
+    <<: *nae_info
+    state: present
+    selector: requirement_set
+    ag_name: Change Management
+    association_to_ag: False
+    form: |
+      {
+        "name": "requirement_set_associated_ag",
+        "description": "",
+        "requirements": [
+            "bd_config_requirement"
+        ]
+      }
+
+- name: Delete Requirement Sets
+  cisco.nae.nae_compliance:
+    <<: *nae_info
+    name: "{{ item }}"
+    state: absent
+    selector: requirement_set
+  loop:
+    - ansible_comp_requirement_set_2
+    - ansible_comp_requirement_set
+    - requirement_set_associated_ag
+
+- name: Delete Requirements
+  cisco.nae.nae_compliance:
+    <<: *nae_info
+    name: "{{ item }}"
+    state: absent
+    selector: requirement
+  with_items:
+    - ansible_comp_requirement
+    - bd_config_requirement
+
+- name: Delete object selectors
+  cisco.nae.nae_compliance:
+    <<: *nae_info
+    name: "{{ item }}"
+    state: absent
+    selector: object
+  with_items:
+    - DataBase
+    - Web
+    - ansible_object_selector
+    - bds_in_non_prod
+
+- name: Delete traffic selectors
+  cisco.nae.nae_compliance:
+    <<: *nae_info
+    name: "{{ item }}"
+    state: absent
+    selector: traffic
+  with_items:
+    - traffic_selector
+    - FCOE_traffic_selector
+
+- name: Check whether AG Change Management exists
+  cisco.nae.nae_ag:
+    <<: *nae_info
+    name: Change Management
+    state: query
+  register: check_ag
+
+- name: Create AG Change Management and do offline analysis if not existing
+  include_tasks: create_ag.yml
+  when: check_ag.msg is defined and check_ag.msg == "Assurance group Change Management does not exist"
+
+- name: Create an object selector
+  cisco.nae.nae_compliance:
+    <<: *nae_info
+    state: present
+    selector: object
+    form: |
+        {
+        "name": "ansible_object_selector",
+        "description": null,
+        "includes": [
+            {
+            "matches": [
+                {
+                "application_epgmatch": {
+                    "object_attribute": "DN",
+                    "tenant": {
+                    "pattern": "NAE_Compliance",
+                    "type": "EXACT"
+                    },
+                    "application_profile": {
+                    "pattern": "ComplianceIsGood",
+                    "type": "EXACT"
+                    },
+                    "application_epg": {
+                    "pattern": "DataBase",
+                    "type": "EXACT"
+                    }
+                }
+                }
+            ]
+            }
+        ],
+        "excludes": [],
+        "selector_type": "OST_EPG"
+        }
+  register: create_obj_selector
+
+- name: Create object selector again
+  cisco.nae.nae_compliance:
+    <<: *nae_info
+    state: present
+    selector: object
+    form: |
+        {
+        "name": "ansible_object_selector",
+        "description": null,
+        "includes": [
+            {
+            "matches": [
+                {
+                "application_epgmatch": {
+                    "object_attribute": "DN",
+                    "tenant": {
+                    "pattern": "NAE_Compliance",
+                    "type": "EXACT"
+                    },
+                    "application_profile": {
+                    "pattern": "ComplianceIsGood",
+                    "type": "EXACT"
+                    },
+                    "application_epg": {
+                    "pattern": "DataBase",
+                    "type": "EXACT"
+                    }
+                }
+                }
+            ]
+            }
+        ],
+        "excludes": [],
+        "selector_type": "OST_EPG"
+        }
+  register: create_obj_selector_again
+
+- name: Verify create_obj_selector and create_obj_selector_again
+  assert:
+    that:
+      - create_obj_selector is changed
+      - create_obj_selector_again is not changed
+
+- name: Update object selector
+  cisco.nae.nae_compliance:
+    <<: *nae_info
+    state: present
+    selector: object
+    form: |
+        {
+        "name": "ansible_object_selector",
+        "description": "update obj selector",
+        "includes": [
+            {
+            "matches": [
+                {
+                "application_epgmatch": {
+                    "object_attribute": "DN",
+                    "tenant": {
+                    "pattern": "NAE_Compliance",
+                    "type": "EXACT"
+                    },
+                    "application_profile": {
+                    "pattern": "ComplianceIsGood",
+                    "type": "EXACT"
+                    },
+                    "application_epg": {
+                    "pattern": "DataBase",
+                    "type": "EXACT"
+                    }
+                }
+                }
+            ]
+            }
+        ],
+        "excludes": [],
+        "selector_type": "OST_EPG"
+        }
+  register: update_obj_selector
+
+- name: Verify update_obj_selector
+  assert:
+    that:
+      - update_obj_selector is changed
+
+- name: Create object selector for DataBase Tier
+  cisco.nae.nae_compliance:
+    <<: *nae_info
+    state: present
+    form: |
+        {
+        "name": "DataBase",
+        "description": null,
+        "includes": [
+          {
+            "matches": [
+              {
+                "application_epgmatch": {
+                  "object_attribute": "DN",
+                  "tenant": {
+                    "pattern": "nae-non-prod",
+                    "type": "EXACT"
+                  },
+                  "application_profile": {
+                    "pattern": "payroll-ap",
+                    "type": "EXACT"
+                  },
+                  "application_epg": {
+                    "pattern": "payroll-db-tier-epg",
+                    "type": "EXACT"
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        "excludes": [],
+        "selector_type": "OST_EPG"
+        }
+  register: create_db_selector
+
+- name: Create object selector for Web Tier
+  cisco.nae.nae_compliance:
+    <<: *nae_info
+    state: present
+    selector: object
+    form: |
+        {
+        "name": "Web",
+        "description": null,
+        "includes": [
+          {
+            "matches": [
+              {
+                "application_epgmatch": {
+                  "object_attribute": "DN",
+                  "tenant": {
+                    "pattern": "nae-non-prod",
+                    "type": "EXACT"
+                  },
+                  "application_profile": {
+                    "pattern": "payroll-ap",
+                    "type": "EXACT"
+                  },
+                  "application_epg": {
+                    "pattern": "payroll-web-tier-epg",
+                    "type": "EXACT"
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        "excludes": [],
+        "selector_type": "OST_EPG"
+        }
+  register: create_web_selector
+
+- name: Create object selector for Bridge Domains
+  cisco.nae.nae_compliance:
+    <<: *nae_info
+    state: present
+    form: |
+      {
+                    "name": "bds_in_non_prod",
+                    "description": null,
+                    "includes": [
+                      {
+                        "matches": [
+                          {
+                            "tenant_match": {
+                              "object_attribute": "DN",
+                              "tenant": {
+                                "pattern": "nae-non-prod",
+                                "type": "EXACT"
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    ],
+                    "excludes": [],
+                    "selector_type": "OST_BD"
+                  }
+  register: create_bd_selector
+
+- name: Verify create_db_selector, create_web_selector and create_bd_selector
+  assert:
+    that:
+    - create_db_selector is changed
+    - create_web_selector is changed
+    - create_bd_selector is changed
+
+- name: Create a compliance requirement
+  cisco.nae.nae_compliance:
+    <<: *nae_info
+    state: present
+    selector: requirement
+    form: |
+        {
+        "name": "ansible_comp_requirement",
+        "config_compliance_parameter": {
+        },
+        "epg_selector_a": "Web",
+        "epg_selector_b": "DataBase",
+        "requirement_type": "SEGMENTATION",
+        "communication_type": "MUST_NOT",
+        "is_all_traffic": false
+        }
+  register: create_req
+
+- name: Update compliance requirement
+  cisco.nae.nae_compliance:
+    <<: *nae_info
+    state: present
+    selector: requirement
+    form: |
+        {
+        "name": "ansible_comp_requirement",
+        "requirement_type": "SEGMENTATION",
+        "epg_selector_a": "Web",
+        "description":"update compliance req",
+        "epg_selector_b": "DataBase",
+        "communication_type": "MUST_NOT"
+        }
+  register: update_req
+
+- name: Verify update_req
+  assert:
+    that:
+      - update_req is changed
+
+- name: Create Config Compliance Requirement for Web to DB communication
+  cisco.nae.nae_compliance:
+    <<: *nae_info
+    state: present
+    selector: requirement
+    form: |
+      {
+        "name": "bd_config_requirement",
+        "requirement_type": "CONFIGURATION_COMPLIANCE",
+        "epg_selector_a": "bds_in_non_prod",
+        "config_compliance_parameter": {
+          "and_parameters": [
+            {
+              "parameter": "CCP_L2_UNKNOWN_UNICAST",
+              "value": "Hardware Proxy",
+              "operator": "EQUAL_TO"
+            },
+            {
+              "parameter": "CCP_LIMIT_IP_LEARNING_TO_SUBNET",
+              "value": "Yes",
+              "operator": "EQUAL_TO"
+            }
+          ]
+        }
+      }
+  register: create_bd_requirement
+
+- name: Create Config Compliance Requirement for Web to DB communication again
+  cisco.nae.nae_compliance:
+    <<: *nae_info
+    state: present
+    selector: requirement
+    form: |
+      {
+        "name": "bd_config_requirement",
+        "requirement_type": "CONFIGURATION_COMPLIANCE",
+        "epg_selector_a": "bds_in_non_prod",
+        "config_compliance_parameter": {
+          "and_parameters": [
+            {
+              "parameter": "CCP_L2_UNKNOWN_UNICAST",
+              "value": "Hardware Proxy",
+              "operator": "EQUAL_TO"
+            },
+            {
+              "parameter": "CCP_LIMIT_IP_LEARNING_TO_SUBNET",
+              "value": "Yes",
+              "operator": "EQUAL_TO"
+            }
+          ]
+        }
+      }
+  register: create_bd_requirement_again
+
+- name: Verify create_req, create_bd_requirement and create_bd_requirement_again
+  assert:
+    that:
+      - create_req is changed
+      - create_bd_requirement is changed
+      - create_bd_requirement_again is not changed
+
+- name: Create a compliance requirement set (not associated to ag)
+  cisco.nae.nae_compliance:
+    <<: *nae_info
+    state: present
+    selector: requirement_set
+    ag_name: Change Management
+    association_to_ag: False
+    form: |
+      {
+        "name": "ansible_comp_requirement_set",
+        "description": "",
+        "requirements": [
+            "bd_config_requirement",
+            "ansible_comp_requirement"
+        ]
+      }
+  register: create_req_set
+
+- name: Create a compliance requirement set again(not associated to ag)
+  cisco.nae.nae_compliance:
+    <<: *nae_info
+    state: present
+    selector: requirement_set
+    ag_name: Change Management
+    association_to_ag: False
+    form: |
+      {
+        "name": "ansible_comp_requirement_set",
+        "description": "",
+        "requirements": [
+            "bd_config_requirement",
+            "ansible_comp_requirement"
+        ]
+      }
+  register: create_req_set_again
+
+- name: Verify create_req_set_again
+  assert:
+    that:
+    - create_req_set_again is not changed
+
+- name: Create a compliance requirement set (associated to ag and not active)
+  cisco.nae.nae_compliance:
+    <<: *nae_info
+    state: present
+    selector: requirement_set
+    ag_name: Change Management
+    active: false
+    form: |
+      {
+        "name": "requirement_set_associated_ag",
+        "description": "",
+        "requirements": [
+            "bd_config_requirement"
+        ]
+      }
+
+- name: Update the compliance requirement set (associated to ag and active)
+  cisco.nae.nae_compliance:
+    <<: *nae_info
+    state: present
+    selector: requirement_set
+    ag_name: Change Management
+    form: |
+      {
+        "name": "requirement_set_associated_ag",
+        "description": "",
+        "requirements": [
+            "bd_config_requirement"
+        ]
+      }
+
+- name: Disassociated requirement set from ag
+  cisco.nae.nae_compliance:
+    <<: *nae_info
+    state: present
+    selector: requirement_set
+    ag_name: Change Management
+    association_to_ag: False
+    form: |
+      {
+        "name": "requirement_set_associated_ag",
+        "description": "",
+        "requirements": [
+            "bd_config_requirement"
+        ]
+      }
+
+- name: Create another compliance requirement set (not associated to ag)
+  cisco.nae.nae_compliance:
+    <<: *nae_info
+    state: present
+    selector: requirement_set
+    ag_name: Change Management
+    association_to_ag: False
+    form: |
+        {
+        "name": "ansible_comp_requirement_set_2",
+        "requirements": [
+            "bd_config_requirement"
+        ]
+        }
+  register: create_req_set_2
+
+- name: Verify create_req_set and create_req_set_2
+  assert:
+    that:
+      - create_req_set is changed
+      - create_req_set_2 is changed
+
+- name: Update compliance requirement set
+  cisco.nae.nae_compliance:
+    <<: *nae_info
+    state: present
+    selector: requirement_set
+    ag_name: Change Management
+    association_to_ag: False
+    form: |
+        {
+        "name": "ansible_comp_requirement_set_2",
+        "description": "Update requirement set",
+        "requirements": [
+            "bd_config_requirement"
+        ]
+        }
+  register: update_req_set
+
+- name: Verify update_req_set
+  assert:
+    that:
+      - update_req_set is changed
+
+- name: Create a traffic selector
+  cisco.nae.nae_compliance:
+    <<: *nae_info
+    state: present
+    selector: traffic
+    form: |
+      {
+        "name": "traffic_selector",
+        "description": "This is a description",
+        "includes": {
+          "selectors": [
+              {
+                  "selectors": [
+                    {
+                      "ether_type": "ARP"
+                    },
+                    {
+                      "ether_type": "FCOE"
+                    },
+                    {
+                      "ether_type": "IP",
+                      "ip_protocol": "EGP"
+                    },
+                    {
+                      "ether_type": "MAC_SECURITY"
+                    },
+                    {
+                      "ether_type": "MPLS_UNICAST"
+                    },
+                    {
+                      "ether_type": "TRILL"
+                    }
+                  ]
+              }
+          ]
+        }
+      }
+  register: create_traffic_selector
+
+- name: Create traffic selector again
+  cisco.nae.nae_compliance:
+    <<: *nae_info
+    state: present
+    selector: traffic
+    form: |
+      {
+        "name": "traffic_selector",
+        "description": "This is a description",
+        "includes": {
+          "selectors": [
+              {
+                  "selectors": [
+                    {
+                      "ether_type": "ARP"
+                    },
+                    {
+                      "ether_type": "FCOE"
+                    },
+                    {
+                      "ether_type": "IP",
+                      "ip_protocol": "EGP"
+                    },
+                    {
+                      "ether_type": "MAC_SECURITY"
+                    },
+                    {
+                      "ether_type": "MPLS_UNICAST"
+                    },
+                    {
+                      "ether_type": "TRILL"
+                    }
+                  ]
+              }
+          ]
+        }
+      }
+  register: create_traffic_selector_again
+
+- name: Update the traffic selector
+  cisco.nae.nae_compliance:
+    <<: *nae_info
+    state: present
+    selector: traffic
+    form: |
+      {
+        "name": "traffic_selector",
+        "description": "Updated description",
+        "includes": {
+          "selectors": [
+              {
+                  "selectors": [
+                    {
+                      "ether_type": "ARP"
+                    },
+                    {
+                      "ether_type": "FCOE"
+                    },
+                    {
+                      "ether_type": "IP",
+                      "ip_protocol": "EGP"
+                    },
+                    {
+                      "ether_type": "MAC_SECURITY"
+                    },
+                    {
+                      "ether_type": "MPLS_UNICAST"
+                    },
+                    {
+                      "ether_type": "TRILL"
+                    }
+                  ]
+              }
+          ]
+        }
+      }
+  register: update_traffic_selector
+
+- name: Verify update_traffic_selector and create_traffic_selector_again
+  assert:
+    that:
+      - update_traffic_selector is changed
+      - create_traffic_selector_again is not changed
+
+- name: Create another traffic selector
+  cisco.nae.nae_compliance:
+    <<: *nae_info
+    state: present
+    selector: traffic
+    form: |
+      {
+        "name": "FCOE_traffic_selector",
+        "description": "This is a description",
+        "includes": {
+          "selectors": [
+              {
+                  "selectors": [
+                    {
+                      "ether_type": "FCOE"
+                    }
+                  ]
+              }
+          ]
+        }
+      }
+  register: create_another_traffic_selector
+
+- name: Verify create_traffic_selector and create_another_traffic_selector
+  assert:
+    that:
+      - create_another_traffic_selector is changed
+      - create_traffic_selector is changed
+
+- name: Query for all object selectors
+  cisco.nae.nae_compliance:
+    <<: *nae_info
+    state: query
+  register: query_all_obj
+
+- name: Query for all traffic selectors
+  cisco.nae.nae_compliance:
+    <<: *nae_info
+    state: query
+    selector: traffic
+  register: query_all_selector
+
+- name: Query for all requirements
+  cisco.nae.nae_compliance:
+    <<: *nae_info
+    state: query
+    selector: requirement
+  register: query_all_req
+
+- name: Query for all requirement sets
+  cisco.nae.nae_compliance:
+    <<: *nae_info
+    state: query
+    selector: requirement_set
+  register: query_all_req_set
+
+- name: Verify query_all_obj, query_all_req, query_all_req_set and query_all_selector
+  assert:
+    that:
+      - query_all_obj is not changed
+      - query_all_obj.Result | length >= 3
+      - query_all_req is not changed
+      - query_all_req.Result | length >= 2
+      - query_all_req_set is not changed
+      - query_all_req_set.Result | length >= 2
+
+- name: Query for specific object selector
+  cisco.nae.nae_compliance:
+    <<: *nae_info
+    state: query
+    name: DataBase
+  register: query_obj_selector
+
+- name: Query for specific traffic selector
+  cisco.nae.nae_compliance:
+    <<: *nae_info
+    state: query
+    selector: traffic
+    name: traffic_selector
+  register: query_traffic_selector
+
+- name: Query for specific requirement
+  cisco.nae.nae_compliance:
+    <<: *nae_info
+    state: query
+    selector: requirement
+    name: ansible_comp_requirement
+  register: query_req
+
+- name: Query for specific requirement set
+  cisco.nae.nae_compliance:
+    <<: *nae_info
+    state: query
+    selector: requirement_set
+    name: ansible_comp_requirement_set
+  register: query_req_set
+
+- name: Verify query
+  assert:
+    that:
+    - query_obj_selector is not changed
+    - query_traffic_selector is not changed
+    - query_req is not changed
+    - query_req_set is not changed
+    - query_obj_selector.Result.name == "DataBase"
+    - query_obj_selector.Result.associated_requirements == ["ansible_comp_requirement"]
+    - query_traffic_selector.Result.associated_requirements == []
+    - query_traffic_selector.Result.description == "Updated description"
+    - query_traffic_selector.Result.name == "traffic_selector"
+    - query_req.Result.communication_type == "MUST_NOT"
+    - query_req.Result.epg_selector_a == "Web"
+    - query_req.Result.epg_selector_b == "DataBase"
+    - query_req.Result.name == "ansible_comp_requirement"
+    - query_req.Result.requirement_type == "SEGMENTATION"
+    - query_req_set.Result.associated == "no"
+    - query_req_set.Result.assurance_groups == []
+    - query_req_set.Result.name == "ansible_comp_requirement_set"
+    - query_req_set.Result.requirements | length == 2
+    - query_req_set.Result.status == "inactive"
+
+- name: Remove traffic selector
+  cisco.nae.nae_compliance:
+    <<: *nae_info
+    state: absent
+    selector: traffic
+    name: traffic_selector
+  register: rm_traffic_selector
+
+- name: Remove requirement set
+  cisco.nae.nae_compliance:
+    <<: *nae_info
+    state: absent
+    selector: requirement_set
+    name: ansible_comp_requirement_set
+  register: rm_req_set
+
+- name: Remove requirement
+  cisco.nae.nae_compliance:
+    <<: *nae_info
+    state: absent
+    selector: requirement
+    name: ansible_comp_requirement
+  register: rm_req
+
+- name: Remove object selector
+  cisco.nae.nae_compliance:
+    <<: *nae_info
+    state: absent
+    name: ansible_object_selector
+  register: rm_obj_selector
+
+- name: Verify rm_traffic_selector, rm_req_set, rm_req and rm_obj_selector
+  assert:
+    that:
+      - rm_traffic_selector is changed
+      - rm_traffic_selector.Result == "Traffic selector traffic_selector deleted"
+      - rm_req_set is changed
+      - rm_req_set.Result == "Requirement set ansible_comp_requirement_set deleted"
+      - rm_req is changed
+      - rm_req.Result == "Requirement ansible_comp_requirement deleted"
+      - rm_obj_selector is changed
+      - rm_obj_selector.Result == "Object selector ansible_object_selector deleted"
+
+- name: Query for non_existing object selector
+  cisco.nae.nae_compliance:
+    <<: *nae_info
+    state: query
+    name: non_existing_selector
+
+- name: Query for non_existing traffic selector
+  cisco.nae.nae_compliance:
+    <<: *nae_info
+    state: query
+    selector: traffic
+    name: non_existing_traffic_selector
+
+- name: Query for non_existing requirement
+  cisco.nae.nae_compliance:
+    <<: *nae_info
+    state: query
+    selector: requirement
+    name: non_existing_ansible_comp_requirement
+
+- name: Query for non_existing requirement set
+  cisco.nae.nae_compliance:
+    <<: *nae_info
+    state: query
+    selector: requirement_set
+    name: non_existing_ansible_comp_requirement_set
+
+- name: Remove for non_existing object selector
+  cisco.nae.nae_compliance:
+    <<: *nae_info
+    state: absent
+    name: non_existing_selector
+  register: rm_non_existing_obj_selector
+
+- name: Remove for non_existing traffic selector
+  cisco.nae.nae_compliance:
+    <<: *nae_info
+    state: absent
+    selector: traffic
+    name: non_existing_traffic_selector
+  register: rm_non_existing_traffic_selector
+
+- name: Remove for non_existing requirement
+  cisco.nae.nae_compliance:
+    <<: *nae_info
+    state: absent
+    selector: requirement
+    name: non_existing_ansible_comp_requirement
+  register: rm_non_existing_req
+
+- name: Remove for non_existing requirement set
+  cisco.nae.nae_compliance:
+    <<: *nae_info
+    state: absent
+    selector: requirement_set
+    name: non_existing_ansible_comp_requirement_set
+  register: rm_non_existing_req_set
+
+- name: Use incorrect params
+  cisco.nae.nae_compliance:
+    <<: *nae_info
+    state: modify
+    selector: traffic
+  ignore_errors: yes
+  register: incorrect_params
+
+- name: Verify removing non_existing selectors
+  assert:
+    that:
+      - rm_non_existing_obj_selector is not changed
+      - rm_non_existing_obj_selector.Result == []
+      - rm_non_existing_obj_selector.msg == "WARNING{{':'}} Object selector non_existing_selector does not exist!!!"
+      - rm_non_existing_req is not changed
+      - rm_non_existing_req.Result == []
+      - rm_non_existing_req.msg == "WARNING{{':'}} Requirement non_existing_ansible_comp_requirement does not exist!!!"
+      - rm_non_existing_traffic_selector is not changed
+      - rm_non_existing_traffic_selector.Result == []
+      - rm_non_existing_traffic_selector.msg == "WARNING{{':'}} Traffic selector non_existing_traffic_selector does not exist!!!"
+      - rm_non_existing_req_set is not changed
+      - rm_non_existing_req_set.Result == []
+      - rm_non_existing_req_set.msg == "WARNING{{':'}} Requirement set non_existing_ansible_comp_requirement_set does not exist!!!"
+
+- name: Verify incorrect_params
+  assert:
+    that:
+      - incorrect_params is not changed
+      - incorrect_params.msg == "Incorrect parameters passed"

@@ -1,0 +1,61 @@
+# Test code for the NAE modules
+# Copyright: (c) 2020, Cindy Zhao (cizhao) <cizhao@cisco.com>
+
+# GNU General Public License v3.0+ (see LICENSE or https://www.gnu.org/licenses/gpl-3.0.txt)
+
+- name: Test that we have an NAE host, NAE username and NAE password
+  fail:
+    msg: 'Please define the following variables: nae_host, nae_username and nae_password.'
+  when: nae_host is not defined or nae_username is not defined or nae_password is not defined
+
+- name: Set vars
+  set_fact: 
+    nae_info: &nae_info
+      host: '{{ nae_host }}'
+      username: '{{ nae_username }}'
+      password: '{{ nae_password }}'
+      validate_certs: '{{ nae_validate_certs | default(false) }}'
+
+- name: Create AG
+  cisco.nae.nae_ag:
+    <<: *nae_info
+    name: Change Management
+    state: present
+
+- name: Download files
+  get_url:
+        url: "https://github.com/CiscoDevNet/ansible-nae/raw/datasets/{{item}}"
+        dest: /tmp/
+  loop:
+    - ChangeMgmtCorrectScopeOverlappingSubnet_2020-10-22_22_36_21.tar.gz
+    - ChangeMgmtCorrect_2020-10-22_22_38_14.tar.gz
+    - ChangeMgmtSegmentationCompliance_2020-10-22_22_40_40.tar.gz
+    - ChangeMgmtWrongScope_2020-10-22_22_34_03.tar.gz
+    - DcOpsDupIP_2020-10-22_22_27_48.tar.gz
+    - DcOpsNoDupIP_2020-10-22_22_30_09.tar.gz
+    - DcOpsNoFilter_2020-10-22_22_32_08.tar.gz
+    - EpochDeltaDupIP_2020-10-22_22_42_53.tar.gz
+    - EpochDeltaNoDupIP.tar.gz
+    - Migrations1_.tar.gz
+
+- name: Upload Files
+  cisco.nae.nae_file_management:
+    <<: *nae_info
+    file: "{{ item }}"
+    #Get the file name and remove the date i.e. a file name is something like this aci/files/datasets/ChangeMgmt2_2020-09-03_23_22_28.tar.gz
+    name: "{{ item.split('/')[-1].split('_')[0] }}" 
+    state: present
+  with_fileglob:
+    - /tmp/*.tar.gz
+
+- name: Do Offline Analysis
+  cisco.nae.nae_offline_analysis:
+    <<: *nae_info
+    state: present
+    complete: true
+    name: "{{ item.split('/')[-1].split('_')[0] }}"
+    ag_name: "Change Management"
+    filename: "{{ item.split('/')[-1].split('_')[0] }}"
+  with_fileglob:
+    - /tmp/*.tar.gz
+  when: "'ChangeMgmt' in item"

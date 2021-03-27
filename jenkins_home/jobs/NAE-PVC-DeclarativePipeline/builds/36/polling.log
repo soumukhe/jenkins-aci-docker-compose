@@ -1,0 +1,24 @@
+Started on Mar 26, 2021 3:43:54 AM
+Started by event from 140.82.115.245 ⇒ http://173.37.213.71:8080/github-webhook/ on Fri Mar 26 03:43:54 UTC 2021
+Using strategy: Default
+[poll] Last Built Revision: Revision 3d99d3bbd300c71c898cbdfffe03d29ecc49f3d8 (refs/remotes/origin/master)
+Selected Git installation does not exist. Using Default
+The recommended git tool is: NONE
+No credentials specified
+ > /usr/bin/git --version # timeout=10
+ > git --version # 'git version 2.20.1'
+ > /usr/bin/git ls-remote -h -- https://github.com/soumukhe/jenkins-NAE-cicd-.git # timeout=10
+Found 1 remote heads on https://github.com/soumukhe/jenkins-NAE-cicd-.git
+[poll] Latest remote head revision on refs/heads/master is: 37bec43d87d414579431ef2b14e9d6342e243d18
+Using strategy: Default
+[poll] Last Built Revision: Revision 3d99d3bbd300c71c898cbdfffe03d29ecc49f3d8 (refs/remotes/origin/master)
+Selected Git installation does not exist. Using Default
+The recommended git tool is: NONE
+No credentials specified
+ > /usr/bin/git --version # timeout=10
+ > git --version # 'git version 2.20.1'
+ > /usr/bin/git ls-remote -h -- https://github.com/soumukhe/jenkins-NAE-cicd-.git # timeout=10
+Found 1 remote heads on https://github.com/soumukhe/jenkins-NAE-cicd-.git
+[poll] Latest remote head revision on refs/heads/master is: 37bec43d87d414579431ef2b14e9d6342e243d18
+Done. Took 0.64 sec
+Changes found

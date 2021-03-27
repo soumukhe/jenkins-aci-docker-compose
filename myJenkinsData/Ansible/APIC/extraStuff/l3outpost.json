@@ -1,0 +1,250 @@
+{
+  "totalCount": "1",
+  "imdata": [
+    {
+      "l3extOut": {
+        "attributes": {
+          "annotation": "orchestrator:msc-shadow:no",
+          "descr": "",
+          "dn": "uni/tn-sm-ansible-T1/out-Site1-L3Out",
+          "enforceRtctrl": "export",
+          "mplsEnabled": "no",
+          "name": "Site1-L3Out",
+          "nameAlias": "",
+          "ownerKey": "",
+          "ownerTag": "",
+          "targetDscp": "unspecified",
+          "userdom": ":all:"
+        },
+        "children": [
+          {
+            "ospfExtP": {
+              "attributes": {
+                "annotation": "",
+                "areaCost": "1",
+                "areaCtrl": "redistribute,summary",
+                "areaId": "backbone",
+                "areaType": "regular",
+                "descr": "",
+                "multipodInternal": "no",
+                "nameAlias": "",
+                "userdom": ":all:"
+              }
+            }
+          },
+          {
+            "l3extRsL3DomAtt": {
+              "attributes": {
+                "annotation": "",
+                "tDn": "uni/l3dom-L3OutDomain",
+                "userdom": ":all:"
+              }
+            }
+          },
+          {
+            "l3extRsEctx": {
+              "attributes": {
+                "annotation": "orchestrator:msc",
+                "tnFvCtxName": "sm-VRF1-ansible",
+                "userdom": "all"
+              }
+            }
+          },
+          {
+            "l3extLNodeP": {
+              "attributes": {
+                "annotation": "",
+                "configIssues": "",
+                "descr": "",
+                "name": "BL101",
+                "nameAlias": "",
+                "ownerKey": "",
+                "ownerTag": "",
+                "tag": "yellow-green",
+                "targetDscp": "unspecified",
+                "userdom": ":all:"
+              },
+              "children": [
+                {
+                  "l3extRsNodeL3OutAtt": {
+                    "attributes": {
+                      "annotation": "",
+                      "configIssues": "",
+                      "rtrId": "1.1.1.1",
+                      "rtrIdLoopBack": "yes",
+                      "tDn": "topology/pod-1/node-101",
+                      "userdom": ":all:"
+                    }
+                  }
+                },
+                {
+                  "l3extLIfP": {
+                    "attributes": {
+                      "annotation": "",
+                      "descr": "",
+                      "name": "R-IntProfile",
+                      "nameAlias": "",
+                      "ownerKey": "",
+                      "ownerTag": "",
+                      "prio": "unspecified",
+                      "tag": "yellow-green",
+                      "userdom": ":all:"
+                    },
+                    "children": [
+                      {
+                        "ospfIfP": {
+                          "attributes": {
+                            "annotation": "",
+                            "authKeyId": "1",
+                            "authType": "none",
+                            "descr": "",
+                            "name": "",
+                            "nameAlias": "",
+                            "userdom": ":all:"
+                          },
+                          "children": [
+                            {
+                              "ospfRsIfPol": {
+                                "attributes": {
+                                  "annotation": "",
+                                  "tnOspfIfPolName": "ospf-broadcast",
+                                  "userdom": "all"
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "l3extRsPathL3OutAtt": {
+                          "attributes": {
+                            "addr": "60.60.60.1/30",
+                            "annotation": "",
+                            "autostate": "disabled",
+                            "descr": "",
+                            "encap": "vlan-603",
+                            "encapScope": "local",
+                            "ifInstT": "ext-svi",
+                            "ipv6Dad": "enabled",
+                            "llAddr": "::",
+                            "mac": "00:22:BD:F8:19:FF",
+                            "mode": "regular",
+                            "mtu": "1500",
+                            "tDn": "topology/pod-1/paths-101/pathep-[eth1/15]",
+                            "targetDscp": "unspecified",
+                            "userdom": ":all:"
+                          }
+                        }
+                      },
+                      {
+                        "l3extRsNdIfPol": {
+                          "attributes": {
+                            "annotation": "",
+                            "tnNdIfPolName": "",
+                            "userdom": "all"
+                          }
+                        }
+                      },
+                      {
+                        "l3extRsLIfPCustQosPol": {
+                          "attributes": {
+                            "annotation": "",
+                            "tnQosCustomPolName": "",
+                            "userdom": "all"
+                          }
+                        }
+                      },
+                      {
+                        "l3extRsIngressQosDppPol": {
+                          "attributes": {
+                            "annotation": "",
+                            "tnQosDppPolName": "",
+                            "userdom": "all"
+                          }
+                        }
+                      },
+                      {
+                        "l3extRsEgressQosDppPol": {
+                          "attributes": {
+                            "annotation": "",
+                            "tnQosDppPolName": "",
+                            "userdom": "all"
+                          }
+                        }
+                      },
+                      {
+                        "l3extRsArpIfPol": {
+                          "attributes": {
+                            "annotation": "",
+                            "tnArpIfPolName": "",
+                            "userdom": "all"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "l3extInstP": {
+              "attributes": {
+                "annotation": "orchestrator:msc-shadow:no",
+                "descr": "",
+                "exceptionTag": "",
+                "floodOnEncap": "disabled",
+                "matchT": "AtleastOne",
+                "name": "extEPG1",
+                "nameAlias": "",
+                "prefGrMemb": "exclude",
+                "prio": "unspecified",
+                "targetDscp": "unspecified",
+                "userdom": ":all:"
+              },
+              "children": [
+                {
+                  "fvSiteAssociated": {
+                    "attributes": {
+                      "annotation": "",
+                      "descr": "",
+                      "name": "msc-local",
+                      "nameAlias": "",
+                      "ownerKey": "",
+                      "ownerTag": "",
+                      "siteId": "1",
+                      "userdom": ":all:"
+                    }
+                  }
+                },
+                {
+                  "l3extSubnet": {
+                    "attributes": {
+                      "aggregate": "",
+                      "annotation": "orchestrator:msc",
+                      "descr": "",
+                      "ip": "10.0.0.0/24",
+                      "name": "",
+                      "nameAlias": "",
+                      "scope": "import-security",
+                      "userdom": ":all:"
+                    }
+                  }
+                },
+                {
+                  "fvRsCustQosPol": {
+                    "attributes": {
+                      "annotation": "",
+                      "tnQosCustomPolName": "",
+                      "userdom": "all"
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

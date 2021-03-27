@@ -1,0 +1,24 @@
+---
+- name: Add a tenant
+  hosts: dmzapic8
+  gather_facts: no
+  connection: local
+
+  vars_files:
+    - apic-vars.yaml 
+
+
+  tasks:
+  - name: Add tenant
+    aci_tenant:
+        host:  '{{ host }}'
+        username: '{{ username }}'
+        tenant: '{{ tenant }}'
+        state: present
+        validate_certs: no
+        private_key: "{{ private_key }}"
+        certificate_name: '{{ certificate_name }}'
+        use_proxy: no
+    delegate_to: localhost
+
+# usage: ansible-playbook  add_tenant.yaml -i hosts -vvv

@@ -1,0 +1,27 @@
+---
+
+- name: add VRF
+  hosts: mso
+  connection: local
+  gather_facts: false
+
+  vars_files:
+    - external_vars.yml
+  tasks:
+    - name: Add a new VRF to template
+      cisco.mso.mso_schema_template_vrf:
+        host: "{{ host }}"
+        username: "{{ username }}"
+        password: "{{ password }}"
+        use_proxy: false
+        schema: "{{ schema }}"
+        template: "{{ template }}"
+        validate_certs: "no"
+        vrf: "{{ vrf }}"
+        state: present
+      delegate_to: localhost
+
+
+# usage: ansible-playbook --ask-vault-pass 1c.AddVRF.yaml -i hosts -vvv
+# usage: ansible-playbook --vault-id vaultPass 1c.AddVRF.yaml -i hosts -vvv
+# mso_schema_template_vrf – Manage VRFs in schema templates:  https://docs.ansible.com/ansible/latest/modules/mso_schema_template_vrf_module.html#mso-schema-template-vrf-module 

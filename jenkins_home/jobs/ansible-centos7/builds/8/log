@@ -1,0 +1,19 @@
+Started by user [8mha:////4HrJlDGTiFVfYBRCfaiU2NLlDPYF5PMA+y0tbxfvjZ1KAAAAmh+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzBEgY+/dLi1CL94vzS3NLsjFQAbSb7OMMAAAA=[0mSoumitra Mukherji
+Running as SYSTEM
+Building in workspace /var/jenkins_home/workspace/ansible-centos7
+[8mha:////4N0QsINqFCRk/yNxC6AxEFfielMTqdzC7QvfUWzg0vZjAAAAqx+LCAAAAAAAAP9b85aBtbiIQSujNKU4P0+vIKc0PTOvWC8xrzgzOT8nv0gvMbkkEyjhCKb88ktSdwVsu2efuqidiYHRh4EDIu2ZUsIg5JOVWJaon5OYl64fXFKUmZduXVHEIAU1ODk/rzg/J1XPGUKDDGKAAEYmBoaKghIGlVTzFFOjVKMUXQuLpERdE0tDU93E5LRU3aREkzRzM7NUY/PkJAB8LGtorwAAAA==[0m[ansible-centos7] $ ansible-playbook /myJenkinsData/Ansible/centos7/play.yaml -i /myJenkinsData/Ansible/centos7/hosts -f 5 -e "MSG='Please Enter Your Text Here'"
+
+PLAY [test] ********************************************************************
+
+TASK [Gathering Facts] *********************************************************
+[0;32mok: [test1][0m
+[0;32m[0m
+TASK [debug] *******************************************************************
+[0;32mok: [test1] => {[0m
+[0;32m    "msg": "Please Enter Your Text Here}"[0m
+[0;32m}[0m
+[0;32m[0m
+PLAY RECAP *********************************************************************
+[0;32mtest1[0m                      : [0;32mok=2   [0m changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
+Finished: SUCCESS

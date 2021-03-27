@@ -1,0 +1,46 @@
+---
+
+- name: add Stretched BD
+  hosts: mso
+  connection: local
+  gather_facts: false
+
+  vars_files:
+    - external_vars.yml
+
+  tasks:
+    - name: Add a new BD
+      cisco.mso.mso_schema_template_bd:
+        host: "{{ host }}"
+        username: "{{ username }}"
+        password: "{{ password }}"
+        use_proxy: false
+        schema: "{{ schema }}"
+        template: "{{ template }}"
+        bd: "{{ bd }}"
+        vrf:
+           name: "{{ vrf }}"
+        layer2_stretch: True
+        validate_certs: "no"
+        state: present
+      delegate_to: localhost
+
+    - name: Add a new subnet to a BD
+      cisco.mso.mso_schema_template_bd_subnet:
+        host: "{{ host }}"
+        username: "{{ username }}"
+        password: "{{ password }}"
+        validate_certs: "no"
+        use_proxy: false
+        schema: "{{ schema }}"
+        template: "{{ template }}"
+        bd: "{{ bd }}"
+        ip:  10.1.1.1/24
+        state: present
+      delegate_to: localhost
+
+
+# usage: ansible-playbook --ask-vault-pass 1d.AddBD.yaml -i hosts -vvv
+# usage: ansible-playbook --vault-id vaultPass 1d.AddBD.yaml -i hosts -vvv
+# mso_schema_template_bd – Manage Bridge Domains (BDs) in schema templates: https://docs.ansible.com/ansible/latest/modules/mso_schema_template_bd_module.html#mso-schema-template-bd-module
+# mso_schema_template_bd_subnet – Manage BD subnets in schema templates: https://docs.ansible.com/ansible/latest/modules/mso_schema_template_bd_subnet_module.html#mso-schema-template-bd-subnet-module

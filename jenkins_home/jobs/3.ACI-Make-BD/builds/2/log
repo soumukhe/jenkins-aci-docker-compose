@@ -1,0 +1,14 @@
+Started by user [8mha:////4HrJlDGTiFVfYBRCfaiU2NLlDPYF5PMA+y0tbxfvjZ1KAAAAmh+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzBEgY+/dLi1CL94vzS3NLsjFQAbSb7OMMAAAA=[0mSoumitra Mukherji
+Running as SYSTEM
+Building in workspace /var/jenkins_home/workspace/3.ACI-Make-BD
+[8mha:////4Nf5l+8Lg06SzH3X8Y976qqQVWDES5GvKxB3A75vHT7AAAAAqx+LCAAAAAAAAP9b85aBtbiIQSujNKU4P0+vIKc0PTOvWC8xrzgzOT8nv0gvMbkkEyjhCKb88ktSdwVsu2efuqidiYHRh4EDIu2ZUsIg5JOVWJaon5OYl64fXFKUmZduXVHEIAU1ODk/rzg/J1XPGUKDDGKAAEYmBoaKghIGlWRzC8PExEQDXfNk00RdE3NDc90ks6QUXcskEwsLM7PEJJPkJAA34NcjrwAAAA==[0m[3.ACI-Make-BD] $ ansible-playbook /myJenkinsData/Ansible/APIC/3.add_bd.yaml -i /myJenkinsData/Ansible/APIC/hosts -f 5 -e host=dmzapic8 -e username=ansible -e tenant=sm-Jenkins-Ansible -e private_key=./certs/ansible.key -e certificate_name=ansible -e vrf_name=SMVRF1 -e bdname=smBD1
+
+PLAY [Add a tenant] ************************************************************
+
+TASK [Creating BD] *************************************************************
+[0;33mchanged: [dmzapic8 -> localhost][0m
+[0;33m[0m
+PLAY RECAP *********************************************************************
+[0;33mdmzapic8[0m                   : [0;32mok=1   [0m [0;33mchanged=1   [0m unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
+Finished: SUCCESS

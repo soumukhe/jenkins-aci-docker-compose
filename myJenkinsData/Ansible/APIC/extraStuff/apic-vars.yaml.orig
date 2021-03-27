@@ -1,0 +1,10 @@
+---
+action: post
+username:  ansible
+protocol: https
+validate_certs:  no
+host: dmzapic8
+private_key: ./certs/ansible.key
+certificate_name: ansible       # this is the certificate name you put in APIC 
+
+tenant:  smAnsibleTest

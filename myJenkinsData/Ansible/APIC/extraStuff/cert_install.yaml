@@ -1,0 +1,24 @@
+# cert_install.yml - this is working fine, creates the certificate on ACI
+---
+- name: Install a X.509 certificate for authentication
+  hosts: dmzapic8
+  gather_facts: no
+
+  tasks:
+
+  - name: Ensure we have a certificate installed
+    aci_aaa_user_certificate:
+      host: 'EnterAPIC_IP_here"
+      username: 'apic#fallback\\ansible'      
+      password: 'EnterPasswordHere'
+      aaa_user: ansible
+      certificate_name: ansible
+      certificate: "{{ lookup('file', 'ansible.crt') }}"
+      validate_certs: no
+    delegate_to: localhost
+
+# usage: ansible-playbook  cert_install.yaml  -i hosts -vvv
+# This playbook can be used to install the public SSL certificate to APIC user ansible (or whatever user, create the user from APIC UI
+# # you need to first create the certificates## using openssl utility
+# example:  openssl req -new -newkey rsa:2048 -days 35600 -nodes -x509 -keyout ansible.key -out ansible.crt -subj '/CN=aci/O=aci/C=US'
+# To check use:    openssl x509 -in ansible.crt -text

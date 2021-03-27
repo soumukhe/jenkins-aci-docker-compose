@@ -1,0 +1,12 @@
+Started on Mar 24, 2021 11:44:00 PM
+Using strategy: Default
+[poll] Last Built Revision: Revision 69948d8857b479c86cabbc8486d40ecf1071dd12 (refs/remotes/origin/master)
+The recommended git tool is: NONE
+No credentials specified
+ > /usr/bin/git --version # timeout=10
+ > git --version # 'git version 2.20.1'
+ > /usr/bin/git ls-remote -h -- https://github.com/soumukhe/jenkinsTest.git # timeout=10
+Found 1 remote heads on https://github.com/soumukhe/jenkinsTest.git
+[poll] Latest remote head revision on refs/heads/master is: 8c1c2e67cafc9288dd14c0de38b9e3c07e1f4aa1
+Done. Took 0.36 sec
+Changes found

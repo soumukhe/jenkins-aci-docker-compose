@@ -1,0 +1,19 @@
+Started by user [8mha:////4HrJlDGTiFVfYBRCfaiU2NLlDPYF5PMA+y0tbxfvjZ1KAAAAmh+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzBEgY+/dLi1CL94vzS3NLsjFQAbSb7OMMAAAA=[0mSoumitra Mukherji
+Running as SYSTEM
+Building in workspace /var/jenkins_home/workspace/ansible-centos7
+[ansible-centos7] $ ansible-playbook /myJenkinsData/Ansible/centos7/play.yaml -i /myJenkinsData/Ansible/centos7/hosts -f 5 -e "MSG='Hello World, I added this on now'"
+
+PLAY [test] ********************************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [test1]
+
+TASK [debug] *******************************************************************
+ok: [test1] => {
+    "msg": "Hello World, I added this on now}"
+}
+
+PLAY RECAP *********************************************************************
+test1                      : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
+Finished: SUCCESS

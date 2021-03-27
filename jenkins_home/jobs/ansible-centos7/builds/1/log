@@ -1,0 +1,17 @@
+Started by user [8mha:////4HrJlDGTiFVfYBRCfaiU2NLlDPYF5PMA+y0tbxfvjZ1KAAAAmh+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzBEgY+/dLi1CL94vzS3NLsjFQAbSb7OMMAAAA=[0mSoumitra Mukherji
+Running as SYSTEM
+Building in workspace /var/jenkins_home/workspace/ansible-centos7
+[ansible-centos7] $ ansible-playbook /myJenkinsData/Ansible/centos7/play.yaml -l /myJenkinsData/Ansible/centos7/hosts -f 5
+[WARNING]: No inventory was parsed, only implicit localhost is available
+[WARNING]: provided hosts list is empty, only localhost is available. Note that
+the implicit localhost does not match 'all'
+[WARNING]: Could not match supplied host pattern, ignoring:
+/myJenkinsData/Ansible/centos7/hosts
+[WARNING]: Could not match supplied host pattern, ignoring: test
+
+PLAY [test] ********************************************************************
+skipping: no hosts matched
+
+PLAY RECAP *********************************************************************
+
+Finished: SUCCESS

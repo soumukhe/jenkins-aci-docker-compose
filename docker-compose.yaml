@@ -1,0 +1,38 @@
+version: '3'
+volumes:
+   myJenkinsData:
+        
+services:
+   jenkins:
+     container_name:  jenkins-aci
+     image:  jenkins-ansible-aci-demo   #  this is the name of the image to be built
+     build:
+       context: jenkins-ansible
+
+     restart: always
+     ports:
+       -  "10000:8080"
+     volumes:
+       -  "$PWD/jenkins_home:/var/jenkins_home"
+       - "$PWD/myJenkinsData:/myJenkinsData:rw"
+     networks:
+         - net
+     extra_hosts:
+       - "dmzmso dmzmso.localdomain:10.1.100.94"
+       - "dmzapic8.localdomain dmzapic8:10.0.0.58"
+       - "dmzapic7.localdomain dmzapic7:10.0.7.19"
+
+
+
+   remote_host:
+          container_name: remote_host-centos7
+          image:  remote_host-centos7-demo       # this is the name of the image to be built
+          build:
+            context: centos7
+          networks:
+             - net
+
+
+networks:
+        net: 
+

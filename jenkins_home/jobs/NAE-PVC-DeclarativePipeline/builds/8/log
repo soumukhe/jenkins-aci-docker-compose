@@ -1,0 +1,177 @@
+Started by GitHub push by soumukhe
+Obtained jenkinsFile-pipelineScript.groovy from git https://github.com/soumukhe/jenkins-NAE-cicd-.git
+Running in Durability level: MAX_SURVIVABILITY
+[8mha:////4NCLxwltf3swomA9y9hKlapT0P0N4ByZkLviyZj10FflAAAAoh+LCAAAAAAAAP9tjTEOwjAQBM8BClpKHuFItIiK1krDC0x8GCfWnbEdkooX8TX+gCESFVvtrLSa5wtWKcKBo5UdUu8otU4GP9jS5Mixv3geZcdn2TIl9igbHBs2eJyx4YwwR1SwULBGaj0nRzbDRnX6rmuvydanHMu2V1A5c4MHCFXMWcf8hSnC9jqYxPTz/BXAFEIGsfuclm8zQVqFvQAAAA==[0m[Pipeline] Start of Pipeline
+[8mha:////4OIx2gb8uPIkop3IwjPFWyNqOfx6bEpYb5t1CT2GwWlfAAAApR+LCAAAAAAAAP9tjTEOwjAUQ3+KOrAycohUghExsUZZOEFIQkgb/d8mKe3EibgadyBQiQlLlmxL1nu+oE4RjhQdby12HpP2vA+jK4lPFLtroIm3dOGaMFGwXNpJkrGnpUrKFhaxClYC1hZ1oOTRZdiIVt1VExS65pxj2Q4CKm8GeAAThZxVzN8yR9jeRpMIf5y/AJj7DGxXvP/86jduZBmjwAAAAA==[0m[Pipeline] node
+Running on [8mha:////4EY/rQJ8tZIC8OcKgQYpEMR8gU6Lq5JAfeOE4wdqBrZHAAAAnh+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAz2EgZh/eT83ILSktQifY3cxGIgrakPAHib2iPIAAAA[0mJenkins in /var/jenkins_home/workspace/NAE-PVC-DeclarativePipeline
+[8mha:////4MWasJ6231DUw6bNOLXmoY6eHPjLIK7iqb23bZ1KKGT7AAAApR+LCAAAAAAAAP9tjTEOwjAUQ3+KOrAycoh0gA0xsUZZOEFIQkgb/d8mKe3EibgadyBQiQlLlmxL1nu+oE4RjhQdby12HpP2vA+jK4lPFLtroIm3dOGaMFGwXNpJkrGnpUrKFhaxClYC1hZ1oOTRZdiIVt1VExS65pxj2Q4CKm8GeAAThZxVzN8yR9jeRpMIf5y/AJj7DGxXvP/86jfoP95RwAAAAA==[0m[Pipeline] {
+[8mha:////4NaqcJSA6sXbfVXtb08eJZI++z+H4gKya/igQhuQ+fh2AAAApR+LCAAAAAAAAP9tjTEOwjAUQ3+KOrAycoh0gQkxsUZZOEFIQkgb/d8mKe3EibgadyBQiQlLlmxL1nu+oE4RjhQdby12HpP2vA+jK4lPFLtroIm3dOGaMFGwXNpJkrGnpUrKFhaxClYC1hZ1oOTRZdiIVt1VExS65pxj2Q4CKm8GeAAThZxVzN8yR9jeRpMIf5y/AJj7DGxXvP/86jc09154wAAAAA==[0m[Pipeline] stage
+[8mha:////4FZDX87h+o2JHN0opmfqKvHPggY3/TQnVPtcM4/71x5dAAAApR+LCAAAAAAAAP9tjTEOwjAUQ3+KOrAycoh0ggUxsUZZOEFIQkgb/d8mKe3EibgadyBQiQlLlmxL1nu+oE4RjhQdby12HpP2vA+jK4lPFLtroIm3dOGaMFGwXNpJkrGnpUrKFhaxClYC1hZ1oOTRZdiIVt1VExS65pxj2Q4CKm8GeAAThZxVzN8yR9jeRpMIf5y/AJj7DGxXvP/86jek7ggRwAAAAA==[0m[Pipeline] { (Declarative: Checkout SCM)
+[8mha:////4JhePxdbFXgOV0FGdmTRvf8PdWyunmWK37Bfv7FsiRYpAAAAoh+LCAAAAAAAAP9tjTEOAiEURD9rLGwtPQTbaWGsbAmNJ0AWEZb8zwLrbuWJvJp3kLiJlZNMMm+a93rDOic4UbLcG+wdZu14DKOti0+U+lugiXu6ck2YKRguzSSpM+cFJRUDS1gDKwEbgzpQdmgLbIVXD9UGhba9lFS/o4DGdQM8gYlqLiqVL8wJdvexy4Q/z18BzLEA29ce4gfg7KmOvAAAAA==[0m[Pipeline] checkout
+Selected Git installation does not exist. Using Default
+The recommended git tool is: NONE
+No credentials specified
+ > /usr/bin/git rev-parse --is-inside-work-tree # timeout=10
+Fetching changes from the remote Git repository
+ > /usr/bin/git config remote.origin.url https://github.com/soumukhe/jenkins-NAE-cicd-.git # timeout=10
+Fetching upstream changes from https://github.com/soumukhe/jenkins-NAE-cicd-.git
+ > /usr/bin/git --version # timeout=10
+ > git --version # 'git version 2.20.1'
+ > /usr/bin/git fetch --tags --force --progress -- https://github.com/soumukhe/jenkins-NAE-cicd-.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > /usr/bin/git rev-parse refs/remotes/origin/master^{commit} # timeout=10
+Checking out Revision 388b7dde1e25eeab2c3bd20c4796af9c4fa63db3 (refs/remotes/origin/master)
+ > /usr/bin/git config core.sparsecheckout # timeout=10
+ > /usr/bin/git checkout -f 388b7dde1e25eeab2c3bd20c4796af9c4fa63db3 # timeout=10
+Commit message: "123"
+ > /usr/bin/git rev-list --no-walk 97eb1153f858bec66e80fde1ac9034ad91bd5bec # timeout=10
+[8mha:////4G30ZSYITf0jboCAHWm2OmBYn6lTjDXUaJeXPMxaUZV7AAAAoh+LCAAAAAAAAP9tjTEOAiEURD9rLGwtPQTbGRNjZUtoPAGyiLDkfxZYdytP5NW8g8RNrJxkknnTvNcb1jnBiZLl3mDvMGvHYxhtXXyi1N8CTdzTlWvCTMFwaSZJnTkvKKkYWMIaWAnYGNSBskNbYCu8eqg2KLTtpaT6HQU0rhvgCUxUc1GpfGFOsLuPXSb8ef4KYI6xADvU7j9Dg2gqvAAAAA==[0m[Pipeline] }
+[8mha:////4MdWwJRAiHcJX0AdSF9EcxeMy7dI3oDjxdtTi6BdcbHVAAAAoh+LCAAAAAAAAP9tjTEOAiEURD9rLGwtPQRbWRhjZUtoPAGyiLDkfxZYdytP5NW8g8RNrJxkknnTvNcb1jnBiZLl3mDvMGvHYxhtXXyi1N8CTdzTlWvCTMFwaSZJnTkvKKkYWMIaWAnYGNSBskNbYCu8eqg2KLTtpaT6HQU0rhvgCUxUc1GpfGFOsLuPXSb8ef4KYI6xADvU7j9J+wGOvAAAAA==[0m[Pipeline] // stage
+[8mha:////4CrcMtYZUddysMgFthsdwLb30bUpEwcShZf3QcUQXd8vAAAAph+LCAAAAAAAAP9tjTEOwjAQBM9BKWgpeYQDEh2iorXc8AITG+PEugv2haTiRXyNPxCIRMVWOyut5vmCMic4UPKycdgGzHWQXez91ORAqb1EGmRDZ1kTZopOajdosu44oyZ2MEcUsFCwdFhHygE9w0o15m6qaNBXJ07TtldQBHuDBwg1mdkk/sKYYH3tbSb8ef4KYOwYxI6h2G4+x/INtuQqUcEAAAA=[0m[Pipeline] withEnv
+[8mha:////4DlLuaL8kgtCXSFdWmjZLQcNm8gfFgoNFAPVQBwqwYvpAAAApR+LCAAAAAAAAP9tjTEOwjAUQ3+DOrAycoiUzoiJNerCCUITQtLo/zZJSSdOxNW4Ay2VmPBg2Zas93pDGQOcKBjuNHYWY2t570czJ54pdDdPmTu68pYwkte80bkhpc9rbShpWFUw2AjYamw9RYsmwU44+ZCVl2iqSwrzdhTArBrgCYWYyUmG9C1TgP19VJHwx/kLgKlPwOrDYvXyLD8BobDcwgAAAA==[0m[Pipeline] {
+[8mha:////4GpwgSYVt9X7ENutLdkeEpkSyzVyR6KK7qxss6gA8apeAAAAph+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycohUZUVMrFEWThCaEJJG/7dJSjpxIq7GHWipxIQHy7ZkvdcbqhjgRMEwp7GzGFvLej+aObFMobt5yszRlbWEkbxmQmdBSp/XKihpWFWUsOGw1dh6ihZNgh138iFrL9HUlxTm7cihtGqAJxR8JicZ0rdMAfb3UUXCH+cvAKY+Qdk0ix2WZ/UBbwyqm8IAAAA=[0m[Pipeline] stage
+[8mha:////4FueFMug42xPhiHMENednOi09j42Z1n6K4j3CqNQeVC8AAAAph+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycohUwIiYukZZOEFoQkgb/V9+UtqJE3E17kBLJSY8WLYl673eUESGE7ETjcXWY6y96ELvpiQG4vYaaBANXURNGClYoeygyNhqqYqShUVZDisJa4t1oOjRJdjIRj90GTS68px42o4Scm/u8IRMTuSkOX3LyLC99SYS/jh/ATB2CfLdfrbD/Cw+y7kUycIAAAA=[0m[Pipeline] { (Git code checkout and dependencies install)
+[8mha:////4HwH//Ttnre6nWqgK77lNbRbvVBbKvFnmxPGaBVds1GDAAAApx+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycohUCDbE1DXKwglCE0La6P/yk9JOnIircQdaKjHhwbItWe/1hiIynIidaCy2HmPtRRd6NyUxELfXQINo6CJqwkjBCmUHRcZWS1WULCzKclhJWFusA0WPLsFGNvqhy6DRlefE03aUkHtzhydkciInzelbRobtrTeR8Mf5C4CxS5Dv9rMd5mfxAbNWnxXCAAAA[0m[Pipeline] dir
+Running in /var/jenkins_home/workspace/NAE-PVC-DeclarativePipeline/dev
+[8mha:////4M+H69v5rXpchhKYkVXSts6HwSvT56Rimm4hl/+bEceCAAAApx+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycohUSDAhpq5RFk4QmhDSRv+Xn5R24kRcjTvQUokJD5ZtyXqvNxSR4UTsRGOx9RhrL7rQuymJgbi9BhpEQxdRE0YKVig7KDK2WqqiZGFRlsNKwtpiHSh6dAk2stEPXQaNrjwnnrajhNybOzwhkxM5aU7fMjJsb72JhD/OXwCMXYJ8t5/tMD+LD5WQ+PfCAAAA[0m[Pipeline] {
+[8mha:////4GYTSKBeEGwia4EmY/Tp0Q5P+HbuCZ6700o5KHQtO7yqAAAApx+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycohUDLAgpq5RFk4QmhDSRv+Xn5R24kRcjTvQUokJD5ZtyXqvNxSR4UTsRGOx9RhrL7rQuymJgbi9BhpEQxdRE0YKVig7KDK2WqqiZGFRlsNKwtpiHSh6dAk2stEPXQaNrjwnnrajhNybOzwhkxM5aU7fMjJsb72JhD/OXwCMXYJ8t5/tMD+LD/s94rDCAAAA[0m[Pipeline] ansiColor
+[8mha:////4Ln8ULgaHJnrDGpB5+FG78EqSuTIygVfrcXv0cMAiiqyAAAApx+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycohULDAgpq5RFk4QmhDSRv+Xn5R24kRcjTvQUokJD5ZtyXqvNxSR4UTsRGOx9RhrL7rQuymJgbi9BhpEQxdRE0YKVig7KDK2WqqiZGFRlsNKwtpiHSh6dAk2stEPXQaNrjwnnrajhNybOzwhkxM5aU7fMjJsb72JhD/OXwCMXYJ8t5/tMD+LD1+IXOLCAAAA[0m[Pipeline] {
+[8mha:////4HzoIlEnmac9Vjl89VTdMwPdEqdyJyU8XwV/8sU0RIM9AAAAqx+LCAAAAAAAAP9b85aBtbiIQSujNKU4P0+vIKc0PTOvWC8xrzgzOT8nv0gvMbkkEyjhCKb88ktSdwVsu2efuqidiYHRh4EDIu2ZUsIg5JOVWJaon5OYl64fXFKUmZduXVHEIAU1ODk/rzg/J1XPGUKDDGKAAEYmBoaKghIGlSRTs1TLtJRUXWPTVCNdk0RDc90kQ5NEXZNkQzOTlLQkI8sUUwDXUzhBrwAAAA==[0m
+[8mha:////4OIB3fgjfmPJC+TpI7R6Fznkv1BXBK31uwmyVV8XziS2AAAApB+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOIiKpAQVVrLDS8wsTFOrDtjOyQVL+Jr/IFAJCq2WO1sM88XLFOEI0eLraHOUWocBt/baeHAsbt4HrDlMzZMib1BaQbJ2tQzSs4G5hQlLASsDDWekyObYS1adVeVV2SrU47TdxBQOn2DBxRiMmcV8xfGCJtrrxPTz/NXAGMIGcrt/lO7N3ew3WS+AAAA[0m[Pipeline] }
+[8mha:////4MwiEqgRIT9pNSZtxpRirOM/PIkItNm1KoSXM4Dx29f2AAAAqx+LCAAAAAAAAP9b85aBtbiIQSujNKU4P0+vIKc0PTOvWC8xrzgzOT8nv0gvMbkkEyjhCKb88ktSdwVsu2efuqidiYHRh4EDIu2ZUsIg5JOVWJaon5OYl64fXFKUmZduXVHEIAU1ODk/rzg/J1XPGUKDDGKAAEYmBoaKghIGFYtkYwsLsyRLXQsTozRdEwPzFN0kY1ND3UQTi+RUw2Rzi7TkFADJWL8zrwAAAA==[0m
+[8mha:////4KmvIB6w8Tzag8srjVBGkvNnXF0GkE3vweB/nfJyr1QEAAAApR+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOIiGiSEqNJabniBiY1xYt0Z2yGpeBFf4w8EIlGxxWpnm3m+YJkiHDlabA11jlLjMPjeTgsHjt3F84Atn7FhSuwNSjNI1qaeUXI2MKcoYSFgZajxnBzZDGvRqruqvCJbnXKcvoOA0ukbPKAQkzmrmL8wRthce52Yfp6/AhhDyFBu95/avQFEU4bYvgAAAA==[0m[Pipeline] // ansiColor
+[8mha:////4GzaslPCf70tpMrgYkJ8yVIWkDFrtv2TYHjJqn47Z+H/AAAApR+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOICSFQoFa3lhheYxBgn1l2wHZyKF/E1/oBFJCq2WO1sM683LIOHmr3BTlNvKTQWBzeavDCx76+OE3Z8wYYpsNModZLc6tOMkqOGOUUJCwErTY3jYMlEWItOPVTlFJnqHH3+jgJK297hCYXI5qh8/MLkYXMb28D08/wVwDQMEcr9Ntfu8AGrSWhXvgAAAA==[0m[Pipeline] }
+[8mha:////4Nf9V5A5gce05hmRqCceUjZmR9EdZkfUBWoxOJuiciqrAAAApB+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOKiIDpEldZKwwtMbIwT687YDknFi/gaf8AiEhVbrHa2mdcb1jHAiYPBXtNgKXYWvRtNXjhxGK6OJ+z5gh1TZKex1VPLSjcLtpw0LClKWAnYaOocR0smwVb08iErJ8lU5xTydxRQWnWHJxQim5MM6QtzgN1tVJHp5/krgNn7BOW+zlUfPpiqM+u+AAAA[0m[Pipeline] // dir
+[8mha:////4BuwVZLM6XpsBHsAXADEU1iQLJ0vo0Zue7hy5ZhjL48ZAAAApx+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycohUlBExdY2ycIKQhJA2+r8kKe3EibgadyBQiQkPlm3Jes8XVDHAkYJlncHeYVSODX60ObGJQn/xNLGOzkwRRvKGCTMJ0qZdqqBkYFFRworD2qDyFB3aBBveybusvURbn1LI24FD6fQNHlDwTE4ypG+ZA2yvo46EP85fAMxDgnK3z9Y0n2f1BjOvLvLCAAAA[0m[Pipeline] dir
+Running in /var/jenkins_home/workspace/NAE-PVC-DeclarativePipeline/dev/ACI
+[8mha:////4HjRQAOEybXCA+k0h+7uWKQ2dBzwqLcjhNmDkWFWLQKTAAAAph+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycohUKiNiYo2ycILQhJA0+r9NUtKJE3E17kBLJSY8WLYl673eUMUAJwqGOY2dxdha1vvRzIllCt3NU2aOrqwljOQ1EzoLUvq8VkFJw6qihA2HrcbWU7RoEuy4kw9Ze4mmvqQwb0cOpVUDPKHgMznJkL5lCrC/jyoS/jh/ATD1CcqmWeywPKsPpnFij8IAAAA=[0m[Pipeline] {
+[8mha:////4ICAkKU4lRUzOjdQZ+rp2VulLbdUgHQdpIhZ0xPE+ir8AAAApB+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOIiAR2iSmu54QUmNsaJdWdsh6TiRXyNPxCIRMUWq51t5vmCZYpw5GixNdQ5So3D4Hs7LRw4dhfPA7Z8xoYpsTcozSBZm3pGydnAnKKEhYCVocZzcmQzrEWr7qryimx1ynH6DgJKp2/wgEJM5qxi/sIYYXPtdWL6ef4KYAwZyu3uU/vwBrANZ3i+AAAA[0m[Pipeline] sh
++ ansible-galaxy collection install -r galaxy_requirements.txt
+Process install dependency map
+|/-\|/-\|/-\|/Starting collection install process
+|Skipping 'cisco.nae' as it is already installed
+Skipping 'cisco.aci' as it is already installed
+[8mha:////4NNcPVflNjC1DNHlBWmpa6hfPQTTQAIkDAw/CybXHrHoAAAApB+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOIigagQVVrLDS8wsTFOrDtjOyQVL+Jr/IFAJCq2WO1sM88XLFOEI0eLraHOUWocBt/baeHAsbt4HrDlMzZMib1BaQbJ2tQzSs4G5hQlLASsDDWekyObYS1adVeVV2SrU47TdxBQOn2DBxRiMmcV8xfGCJtrrxPTz/NXAGPIUG53n9qHN/E8fGG+AAAA[0m[Pipeline] sh
++ pip3 install -r requirements.txt
+Requirement already satisfied: jsonpatch in /var/jenkins_home/.local/lib/python3.7/site-packages (from -r requirements.txt (line 1)) (1.32)
+Requirement already satisfied: jsonpath-ng in /var/jenkins_home/.local/lib/python3.7/site-packages (from -r requirements.txt (line 2)) (1.5.2)
+Requirement already satisfied: PyYAML in /usr/local/lib/python3.7/dist-packages (from -r requirements.txt (line 3)) (5.3.1)
+Requirement already satisfied: requests in /usr/local/lib/python3.7/dist-packages (from -r requirements.txt (line 4)) (2.23.0)
+Requirement already satisfied: requests-toolbelt in /var/jenkins_home/.local/lib/python3.7/site-packages (from -r requirements.txt (line 5)) (0.9.1)
+Requirement already satisfied: urllib3 in /usr/local/lib/python3.7/dist-packages (from -r requirements.txt (line 6)) (1.25.8)
+Requirement already satisfied: xmljson in /var/jenkins_home/.local/lib/python3.7/site-packages (from -r requirements.txt (line 7)) (0.2.1)
+Requirement already satisfied: zipp in /var/jenkins_home/.local/lib/python3.7/site-packages (from -r requirements.txt (line 8)) (3.4.1)
+Requirement already satisfied: filelock in /var/jenkins_home/.local/lib/python3.7/site-packages (from -r requirements.txt (line 9)) (3.0.12)
+Requirement already satisfied: jsonpointer>=1.9 in /var/jenkins_home/.local/lib/python3.7/site-packages (from jsonpatch->-r requirements.txt (line 1)) (2.1)
+Requirement already satisfied: ply in /var/jenkins_home/.local/lib/python3.7/site-packages (from jsonpath-ng->-r requirements.txt (line 2)) (3.11)
+Requirement already satisfied: six in /usr/local/lib/python3.7/dist-packages (from jsonpath-ng->-r requirements.txt (line 2)) (1.14.0)
+Requirement already satisfied: decorator in /var/jenkins_home/.local/lib/python3.7/site-packages (from jsonpath-ng->-r requirements.txt (line 2)) (4.4.2)
+Requirement already satisfied: chardet<4,>=3.0.2 in /usr/local/lib/python3.7/dist-packages (from requests->-r requirements.txt (line 4)) (3.0.4)
+Requirement already satisfied: idna<3,>=2.5 in /usr/local/lib/python3.7/dist-packages (from requests->-r requirements.txt (line 4)) (2.9)
+Requirement already satisfied: certifi>=2017.4.17 in /usr/local/lib/python3.7/dist-packages (from requests->-r requirements.txt (line 4)) (2019.11.28)
+[8mha:////4EVULJ598vxR9NaYpz0ew973WfttSnliXKEhp1KBYkKUAAAApR+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOIigUSDqNJabniBiY1xYt0Z2yGpeBFf4w8EIlGxxWpnm3m+YJkiHDlabA11jlLjMPjeTgsHjt3F84Atn7FhSuwNSjNI1qaeUXI2MKcoYSFgZajxnBzZDGvRqruqvCJbnXKcvoOA0ukbPKAQkzmrmL8wRthce52Yfp6/AhhDyFBu95/avQFAXH9DvgAAAA==[0m[Pipeline] }
+[8mha:////4EqI2MNqk+5OkFAvavuYgbAZJlK7jnOOk9+fL+TrbfvCAAAApB+LCAAAAAAAAP9tjTESwiAURH/iWNhaeggyk8bCsbJlaDwBJogQ5n8CRFJ5Iq/mHUQzY+UWO/u2ec8XrGOAIwXNrMLBYOwM827SZbFMYbg6yszShXWEkZxiQmVBvTotKCgpWFLVsOKwUdg5igZ1gi238i4bJ1E35xTKd+BQm36EB1S8mJMM6QtzgN1t6iPhz/NXALP3Cep2/6n2DXO/JP++AAAA[0m[Pipeline] // dir
+[8mha:////4HVJgZnyCKVHhDYXif5OM58Ya2p49c/jo2HLRsCTjmECAAAApR+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOIioEFCqWgtN7zAJMY4se6C7eBUvIiv8QcsIlGxxWpnm3m9YRk81OwNdpp6S6GxOLjR5IWJfX91nLDjCzZMgZ1GqZPkVp9mlBw1zClKWAhYaWocB0smwlp06qEqp8hU5+jzdxRQ2vYOTyhENkfl4xcmD5vb2Aamn+evAKZhiFDuDrm2+w/zblhSvgAAAA==[0m[Pipeline] }
+[8mha:////4H7ZOFz3gwbic71jh2tPNuAkqnQVPPTXKF5TVNUJFPuvAAAApB+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPMIR6RCiSmul4QUmPowT687YDknFi/gaf8AiEhVbrHa2mdcb1jHAiYMRPdJgKXZWeDeavMTEYbg6nkTPF9ExRXYoWpxa1tgs2HJCWFKUsJKwQeocR0smwVb26qEqp8hU5xTyd5RQWn2HJxQym5MK6QtzgN1t1JHp5/krgNn7BGV9yLWvP8CNA+6+AAAA[0m[Pipeline] // stage
+[8mha:////4M20I3Zz6J1Vnmh++pf3S6ZejGnnfaVbUwtqIgIkBI04AAAApx+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycoiUihExdY2ycIKQhJA2+r8kKe3EibgadyBQiQkPlm3Jes8XVDHAkYJlncHeYVSODX60ObGJQn/xNLGOzkwRRvKGCTMJ0qZdqqBkYFFRworD2qDyFB3aBBveybusvURbn1LI24FD6fQNHlDwTE4ypG+ZA2yvo46EP85fAMxDgrJpsu13n2f1Bk28/UHCAAAA[0m[Pipeline] stage
+[8mha:////4D6z5Kv1QWQ4+XMEniAz1hD7dxViY2k6ZR+9gndRMSCeAAAAph+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycogUxIiYukZZOEFoQkgb/V9+UtqJE3E17kBLJSY8WLYl673eUESGE7ETjcXWY6y96ELvpiQG4vYaaBANXURNGClYoeygyNhqqYqShUVZDisJa4t1oOjRJdjIRj90GTS68px42o4Scm/u8IRMTuSkOX3LyLC99SYS/jh/ATB2CfLDbrb9/Cw+ty4Up8IAAAA=[0m[Pipeline] { (Generate ACI Config)
+[8mha:////4KwQT0s6VkIliI089BcJVDTcL65tRNEWcMwxbgftVQ8IAAAAph+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycohUwIiYukZZOEFoQkgb/V9+UtqJE3E17kBLJSY8WLYl673eUESGE7ETjcXWY6y96ELvpiQG4vYaaBANXURNGClYoeygyNhqqYqShUVZDisJa4t1oOjRJdjIRj90GTS68px42o4Scm/u8IRMTuSkOX3LyLC99SYS/jh/ATB2CfLDbrb9/Cw+2YMO4MIAAAA=[0m[Pipeline] dir
+Running in /var/jenkins_home/workspace/NAE-PVC-DeclarativePipeline/dev/ACI
+[8mha:////4PA8ogPLxe5RFt26EEFqvwL5TrSuDRztEys7xM452z+oAAAAph+LCAAAAAAAAP9tjTEOwjAUQ3+DOrAycohUoiNiYo26cILQhJA0+r9NUtKJE3E17kBLJSY8WLYl673eUMYAJwqGO42dxdha3vvRzIlnCt3NU+aOrrwljOQ1b3RuSOnzWhtKGlYVDDYCthpbT9GiSbATTj5k5SWa6pLCvB0FMKsGeEIhZnKSIX3LFGB/H1Uk/HH+AmDqE7D6sFi9PMsPfTawssIAAAA=[0m[Pipeline] {
+[8mha:////4GXNUOeA1rJBk300oFXuQMSJgQSNFTUCpZS2sGTSOPClAAAAph+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycoh0KBtiYo2ycILQhJA0+r9NUtKJE3E17kBLJSY8WLYl673eUMUAJwqGOY2dxdha1vvRzIllCt3NU2aOrqwljOQ1EzoLUvq8VkFJw6qihA2HrcbWU7RoEuy4kw9Ze4mmvqQwb0cOpVUDPKHgMznJkL5lCrC/jyoS/jh/ATD1CcqmWeywPKsPBdk7bsIAAAA=[0m[Pipeline] ansiColor
+[8mha:////4KVvFwO5MmUafphf1ZjBwZZzbBP3v2LJ+nvYY2V5ufGfAAAApx+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycoh0ACbE1DXKwglCE0La6P/yk9JOnIircQdaKjHhwbItWe/1hiIynIidaCy2HmPtRRd6NyUxELfXQINo6CJqwkjBCmUHRcZWS1WULCzKclhJWFusA0WPLsFGNvqhy6DRlefE03aUkHtzhydkciInzelbRobtrTeR8Mf5C4CxS5Dv9rMd5mfxASMfXIzCAAAA[0m[Pipeline] {
+[8mha:////4LX32AMQ3yZjP7qsUaz3aku02a/cqRweynU8/8bAHXXNAAAAqx+LCAAAAAAAAP9b85aBtbiIQSujNKU4P0+vIKc0PTOvWC8xrzgzOT8nv0gvMbkkEyjhCKb88ktSdwVsu2efuqidiYHRh4EDIu2ZUsIg5JOVWJaon5OYl64fXFKUmZduXVHEIAU1ODk/rzg/J1XPGUKDDGKAAEYmBoaKghIGFYsko1QjI8Mk3ZRU82RdEyPjRN2kRHNT3VSjxLQkM2PztETjRADgdnWvrwAAAA==[0m
+[8mha:////4IQALwRLgxEYhEvvZsELd4r/eLfM55ZBKVy5z+PHo20SAAAApB+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOJSIGgQVVrLDS8wsTFOrDtjOyQVL+Jr/IFAJCq2WO1sM88XLFOEI0eLraHOUWocBt/baeHAsbt4HrDlMzZMib1BaQbJ2tQzSs4G5hQlLASsDDWekyObYS1adVeVV2SrU47TdxBQOn2DBxRiMmcV8xfGCJtrrxPTz/NXAGPIUG53n9qHN6Ew6eS+AAAA[0m[Pipeline] fileOperations
+File Delete Operation:
+0 files found for include pattern 'config.json' and exclude pattern ''
+[8mha:////4PpTB3BDNny4ua03GJCQ7RTDEL0kLqu5II8WcaVTvp2cAAAApR+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOJSIESBqNJabniBiY1xYt0Z2yGpeBFf4w8EIlGxxWpnm3m+YJkiHDlabA11jlLjMPjeTgsHjt3F84Atn7FhSuwNSjNI1qaeUXI2MKcoYSFgZajxnBzZDGvRqruqvCJbnXKcvoOA0ukbPKAQkzmrmL8wRthce52Yfp6/AhhDhnK7+9Q+vAHgAfL9vgAAAA==[0m[Pipeline] ansiblePlaybook
+[ACI] $ ansible-playbook ./short_aci_demo.yaml -i ./hosts --check -vvv
+[0;34mansible-playbook 2.9.6[0m
+[0;34m  config file = None[0m
+[0;34m  configured module search path = ['/var/jenkins_home/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules'][0m
+[0;34m  ansible python module location = /usr/local/lib/python3.7/dist-packages/ansible[0m
+[0;34m  executable location = /usr/local/bin/ansible-playbook[0m
+[0;34m  python version = 3.7.3 (default, Jul 25 2020, 13:03:44) [GCC 8.3.0][0m
+[0;34m[0m[0;34mNo config file found; using defaults[0m
+[0;34m[0m[0;34mhost_list declined parsing /var/jenkins_home/workspace/NAE-PVC-DeclarativePipeline/dev/ACI/hosts as it did not pass its verify_file() method[0m
+[0;34m[0m[0;34mscript declined parsing /var/jenkins_home/workspace/NAE-PVC-DeclarativePipeline/dev/ACI/hosts as it did not pass its verify_file() method[0m
+[0;34m[0m[0;34mauto declined parsing /var/jenkins_home/workspace/NAE-PVC-DeclarativePipeline/dev/ACI/hosts as it did not pass its verify_file() method[0m
+[0;34m[0m[0;34mParsed /var/jenkins_home/workspace/NAE-PVC-DeclarativePipeline/dev/ACI/hosts inventory source with ini plugin[0m
+[0;34m[0m
+PLAYBOOK: short_aci_demo.yaml **************************************************
+[0;34m1 plays in ./short_aci_demo.yaml[0m
+[0;34m[0m
+PLAY [Add a BD with Subnet to tenant] ******************************************
+[0;34mMETA: ran handlers[0m
+[0;34m[0m
+TASK [Creating BD] *************************************************************
+[1;30mtask path: /var/jenkins_home/workspace/NAE-PVC-DeclarativePipeline/dev/ACI/short_aci_demo.yaml:17[0m
+[1;30m[0m[0;34m<localhost> ESTABLISH LOCAL CONNECTION FOR USER: jenkins[0m
+[0;34m[0m[0;34m<localhost> EXEC /bin/sh -c 'echo ~jenkins && sleep 0'[0m
+[0;34m[0m[0;34m<localhost> EXEC /bin/sh -c '( umask 77 && mkdir -p "` echo /var/jenkins_home/.ansible/tmp/ansible-tmp-1616707459.4036098-102058480500675 `" && echo ansible-tmp-1616707459.4036098-102058480500675="` echo /var/jenkins_home/.ansible/tmp/ansible-tmp-1616707459.4036098-102058480500675 `" ) && sleep 0'[0m
+[0;34m[0m[0;34mUsing module file /usr/local/lib/python3.7/dist-packages/ansible/modules/network/aci/aci_bd.py[0m
+[0;34m[0m[0;34m<localhost> PUT /var/jenkins_home/.ansible/tmp/ansible-local-53764rk3cy6i/tmpuz4wxb_m TO /var/jenkins_home/.ansible/tmp/ansible-tmp-1616707459.4036098-102058480500675/AnsiballZ_aci_bd.py[0m
+[0;34m[0m[0;34m<localhost> EXEC /bin/sh -c 'chmod u+x /var/jenkins_home/.ansible/tmp/ansible-tmp-1616707459.4036098-102058480500675/ /var/jenkins_home/.ansible/tmp/ansible-tmp-1616707459.4036098-102058480500675/AnsiballZ_aci_bd.py && sleep 0'[0m
+[0;34m[0m[0;34m<localhost> EXEC /bin/sh -c '/usr/bin/python3 /var/jenkins_home/.ansible/tmp/ansible-tmp-1616707459.4036098-102058480500675/AnsiballZ_aci_bd.py && sleep 0'[0m
+[0;34m[0m[0;34m<localhost> EXEC /bin/sh -c 'rm -f -r /var/jenkins_home/.ansible/tmp/ansible-tmp-1616707459.4036098-102058480500675/ > /dev/null 2>&1 && sleep 0'[0m
+[0;34m[0m[0;31mfatal: [dmzapic8 -> localhost]: FAILED! => {[0m
+[0;31m    "changed": false,[0m
+[0;31m    "invocation": {[0m
+[0;31m        "module_args": {[0m
+[0;31m            "bd": "newBD8",[0m
+[0;31m            "certificate_name": "ansible",[0m
+[0;31m            "host": "dmzapic8",[0m
+[0;31m            "output_path": "config.json",[0m
+[0;31m            "private_key": "VALUE_SPECIFIED_IN_NO_LOG_PARAMETER",[0m
+[0;31m            "state": "present",[0m
+[0;31m            "tenant": "sm-Jenkins-Ansible",[0m
+[0;31m            "use_proxy": false,[0m
+[0;31m            "username": "ansible",[0m
+[0;31m            "validate_certs": false,[0m
+[0;31m            "vrf": "SMVRF1",[0m
+[0;31m            "vrf_name": "SMVRF1"[0m
+[0;31m        }[0m
+[0;31m    },[0m
+[0;31m    "msg": "Unsupported parameters for (aci_bd) module: output_path Supported parameters include: arp_flooding, bd, bd_type, certificate_name, description, enable_multicast, enable_routing, endpoint_clear, endpoint_move_detect, endpoint_retention_action, endpoint_retention_policy, gateway_ip, host, igmp_snoop_policy, ip_learning, ipv6_nd_policy, l2_unknown_unicast, l3_unknown_multicast, limit_ip_learn, mac_address, multi_dest, output_level, password, port, private_key, scope, state, subnet_mask, tenant, timeout, use_proxy, use_ssl, username, validate_certs, vrf"[0m
+[0;31m}[0m
+[0;31m[0m
+PLAY RECAP *********************************************************************
+[0;31mdmzapic8[0m                   : ok=0    changed=0    unreachable=0    [0;31mfailed=1   [0m skipped=0    rescued=0    ignored=0   
+
+FATAL: command execution failed
+hudson.AbortException: Ansible playbook execution failed
+	at org.jenkinsci.plugins.ansible.AnsiblePlaybookBuilder.perform(AnsiblePlaybookBuilder.java:262)
+	at org.jenkinsci.plugins.ansible.workflow.AnsiblePlaybookStep$AnsiblePlaybookExecution.run(AnsiblePlaybookStep.java:430)
+	at org.jenkinsci.plugins.ansible.workflow.AnsiblePlaybookStep$AnsiblePlaybookExecution.run(AnsiblePlaybookStep.java:351)
+	at org.jenkinsci.plugins.workflow.steps.AbstractSynchronousNonBlockingStepExecution$1$1.call(AbstractSynchronousNonBlockingStepExecution.java:47)
+	at hudson.security.ACL.impersonate2(ACL.java:449)
+	at hudson.security.ACL.impersonate(ACL.java:461)
+	at org.jenkinsci.plugins.workflow.steps.AbstractSynchronousNonBlockingStepExecution$1.run(AbstractSynchronousNonBlockingStepExecution.java:44)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+[8mha:////4DtgTm9L1mZDd/HqMP+bpfOYqNBU7gDWexJqOVqDfPf2AAAApR+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOJSICQkRJXWcsMLTGyME+vO2A5JxYv4Gn8gEImKLVY728zzBcsU4cjRYmuoc5Qah8H3dlo4cOwungds+YwNU2JvUJpBsjb1jJKzgTlFCQsBK0ON5+TIZliLVt1V5RXZ6pTj9B0ElE7f4AGFmMxZxfyFMcLm2uvE9PP8FcAYQoZyu//U7g3wonovvgAAAA==[0m[Pipeline] }
+[8mha:////4G4K0MTS061+21qp67+CPtH8M+aFQ+4YRboakgGnLEVsAAAAqx+LCAAAAAAAAP9b85aBtbiIQSujNKU4P0+vIKc0PTOvWC8xrzgzOT8nv0gvMbkkEyjhCKb88ktSdwVsu2efuqidiYHRh4EDIu2ZUsIg5JOVWJaon5OYl64fXFKUmZduXVHEIAU1ODk/rzg/J1XPGUKDDGKAAEYmBoaKghIGFdNUE0vzVCML3dQkCxNdE6MUI90kg9Qk3aTEZINkCwNTo2QTMwChADl6rwAAAA==[0m
+[8mha:////4BnrfEWzHWPv4VpKdNfYDuLsBV7cmwL+rWrAg2RlKSFzAAAApB+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOJSQIMQVVrLDS8wsTFOrDtjOyQVL+Jr/IFAJCq2WO1sM88XLFOEI0eLraHOUWocBt/baeHAsbt4HrDlMzZMib1BaQbJ2tQzSs4G5hQlLASsDDWekyObYS1adVeVV2SrU47TdxBQOn2DBxRiMmcV8xfGCJtrrxPTz/NXAGMIGcrt/lO7N8NBIZO+AAAA[0m[Pipeline] // ansiColor
+[8mha:////4NgUtnxUFljqrrhD/SQ8ucX9Kgstf7zZSeLnC9cj6BfCAAAApB+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPMJBCh2iSmul4QUmPowT687YDknFi/gaf8AiEhVbrHa2mdcb1jHAiYMRPdJgKXZWeDeavMTEYbg6nkTPF9ExRXYoWpxa1tgs2HJCWFKUsJKwQeocR0smwVb26qEqp8hU5xTyd5RQWn2HJxQym5MK6QtzgN1t1JHp5/krgNn7BOVhn6uuPya77e++AAAA[0m[Pipeline] }
+[8mha:////4A11U1IH29uETrASfrCaEb8gzoJix2FwFUVPPIOgu/WCAAAApR+LCAAAAAAAAP9tjTsOwjAQRDdBFLSUHGIjPh1KRWu54QQmMcaJtRtsB6fiRFyNO2ARiYopRvOmea83LIOHmr3BTlNvKTQWBzeavDCx76+OE3Z8wYYpsNModZLc6tOMkqOGOUUJCwErTY3jYMlEWItOPVTlFJnqHH3+jgJK297hCYXI5qh8/MLkYXMb28D08/wVwDQMEcrDNtd+9wEVWLZTvgAAAA==[0m[Pipeline] // dir
+[8mha:////4CM3JmeLkh+1TGCljBuVCYyXYTqWpDDdIwBBLPE5YdvIAAAApR+LCAAAAAAAAP9tjTsOwjAQRDdBFLSUHGIjPh1KRWu54QQmMcaJtRtsB6fiRFyNO2ARiYopRvOmea83LIOHmr3BTlNvKTQWBzeavDCx76+OE3Z8wYYpsNModZLc6tOMkqOGOUUJCwErTY3jYMlEWItOPVTlFJnqHH3+jgJK297hCYXI5qh8/MLkYXMb28D08/wVwDQMEcrDLtd++wEBeytMvgAAAA==[0m[Pipeline] }
+[8mha:////4BvbF6c+sdZWfVjFqcX4IQdqpTpwRFMsCgflWT1+QSueAAAApB+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPMJBCh2iSmul4QUmPowT687YDknFi/gaf8AiEhVbrHa2mdcb1jHAiYMRPdJgKXZWeDeavMTEYbg6nkTPF9ExRXYoWpxa1tgs2HJCWFKUsJKwQeocR0smwVb26qEqp8hU5xTyd5RQWn2HJxQym5MK6QtzgN1t1JHp5/krgNn7BOWhzlXvPzKYcPC+AAAA[0m[Pipeline] // stage
+[8mha:////4DZffrMsSijXFhjr5wKxDzRRn29MSNoOOj/8IQgPHwLVAAAApx+LCAAAAAAAAP9tjTEOwjAUQ3+DOrAycohUlbohJtaoCycIaQhJo//bJKWdOBFX4w4EKjHhwbItWe/5gjIGOFIw3GnsLUZl+eAnkxOfKfRXTzN3dOGKMJLXvNVzS50+rbWlpGFVwWAjYKtReYoWTYKdcPIuKy/RVOcU8nYQwGw3wgMKkclJhvQtS4D9beoi4Y/zFwDLkIDVdbam+TzLN9XAyx/CAAAA[0m[Pipeline] stage
+[8mha:////4CuSr0Q6zTZKriRnX506+Aipeff3AaFeavEgnEIxrTK3AAAAph+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycoh0KRNiYo2ycILQhJA0+r9NUtKJE3E17kBLJSY8WLYl673eUMUAJwqGOY2dxdha1vvRzIllCt3NU2aOrqwljOQ1EzoLUvq8VkFJw6qihA2HrcbWU7RoEuy4kw9Ze4mmvqQwb0cOpVUDPKHgMznJkL5lCrC/jyoS/jh/ATD1CcqmWeywPKsPIshjPcIAAAA=[0m[Pipeline] { (Verify ACI Config)
+Stage "Verify ACI Config" skipped due to earlier failure(s)
+[8mha:////4Ps1QEr/jgTSTJsZ+mssgBo28CKJx9Jrof2AIMCq4jILAAAApB+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOLSAA2iSmu54QUmNsaJdWdsh6TiRXyNPxCIRMUWq51t5vmCZYpw5GixNdQ5So3D4Hs7LRw4dhfPA7Z8xoYpsTcozSBZm3pGydnAnKKEhYCVocZzcmQzrEWr7qryimx1ynH6DgJKp2/wgEJM5qxi/sIYYXPtdWL6ef4KYAwhQ7ndf2r3Bslrlp++AAAA[0m[Pipeline] }
+[8mha:////4Kc+b2za9iQnJpXb1pJnhks3PCF90zD64nswvcakCRUyAAAApB+LCAAAAAAAAP9tjTESwiAURH/iWNhaegjSZMbCsbJlaDwBJogQ5n8CRFJ5Iq/mHUQzY+UWO/u2ec8XrGOAIwXNrMLBYOwM827SZbFMYbg6yszShXWEkZxiQmVBvTotKCgpWFLVsOKwUdg5igZ1gi238i4bJ1E35xTKd+BQm36EB1S8mJMM6QtzgN1t6iPhz/NXALP3Cep2/6n2DfqIzSO+AAAA[0m[Pipeline] // stage
+[8mha:////4GFfpYmH2g1+dRPj48lzEJLcaBCC7T3r38JTsyh9Hd+tAAAAqB+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycohUlRiQEFPXqAsnCE0ISaP/S5KSTpyIq3EHApWY8GDZlqz3fEEVPBzJa2YVDgZDb9joJp0TS+SHi6PELJ1ZTxjIKdap1JFU7VI7igoWFSWsOKwV9o6CQR1hw624i9oJ1PUp+rwdOJRG3uABBc/kKHz8ltnD9jrJQPjj/AXAPEYomybbbv95Vm+uAAlowgAAAA==[0m[Pipeline] stage
+[8mha:////4JQXl+En9Unvy6Z73b0Pq/b1pna3uuvrN/kxqkztOeeBAAAApx+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycoh0YQAhpq5RFk4QmhDSRv+Xn5R24kRcjTvQUokJD5ZtyXqvNxSR4UTsRGOx9RhrL7rQuymJgbi9BhpEQxdRE0YKVig7KDK2WqqiZGFRlsNKwtpiHSh6dAk2stEPXQaNrjwnnrajhNybOzwhkxM5aU7fMjJsb72JhD/OXwCMXYJ8t5/tMD+LD56au0DCAAAA[0m[Pipeline] { (Push ACI Config)
+Stage "Push ACI Config" skipped due to earlier failure(s)
+[8mha:////4I/gI4fn4C+dh/dQYG7BZ3hSg0i/PKATSUs9QhLNwNc6AAAApR+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOJCAQVCqWgtN7zAJMY4se6C7eBUvIiv8QcsIlGxxWpnm3m9YRk81OwNdpp6S6GxOLjR5IWJfX91nLDjCzZMgZ1GqZPkVp9mlBw1zClKWAhYaWocB0smwlp06qEqp8hU5+jzdxRQ2vYOTyhENkfl4xcmD5vb2Aamn+evAKZhiFDut7l2hw9Lzw7mvgAAAA==[0m[Pipeline] }
+[8mha:////4JjPGDmk7tgu9FtBiwGz7kCfqQsbab6YozmS+bpW29ZlAAAAph+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOIiJJCQUCpayw0vMIkxTqy7YDs4FS/ia/wBi0hUbLHa2WZeb1gGDzV7g52m3lJoLA5uNHlhYt9fHSfs+IINU2CnUeokudWnGSVHDXOKEhYCVpoax8GSibAWnXqoyiky1Tn6/B0FlLa9wxMKkc1R+fiFycPmNraB6ef5K4BpGCKU+22u3eEDeCxVWr4AAAA=[0m[Pipeline] // stage
+[8mha:////4HRozRlGWlV/f8ouVD2c9X9yriCjXOH3R+RmkzcrB9i4AAAApR+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOKiIFEhqrRWGl5gYmOcWHfGdkgqXsTX+AMWkajYYrWzzbzesI4BThwM9poGS7Gz6N1o8sKJw3B1PGHPF+yYIjuNrZ5aVrpZsOWkYUlRwkrARlPnOFoyCbailw9ZOUmmOqeQv6OA0qo7PKEQ2ZxkSF+YA+xuo4pMP89fAczeJygP+1x1/QE3EmrYvgAAAA==[0m[Pipeline] }
+[8mha:////4EaQUCtsddL9Txfa2vXtHizzON3oSOkpxZ18hphLdHEFAAAApR+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOICQlQoFa3lhheYxBgn1l2wHZyKF/E1/oBFJCq2WO1sM683LIOHmr3BTlNvKTQWBzeavDCx76+OE3Z8wYYpsNModZLc6tOMkqOGOUUJCwErTY3jYMlEWItOPVTlFJnqHH3+jgJK297hCYXI5qh8/MLkYXMb28D08/wVwDQMEcrDPtdu+wEE8TFkvgAAAA==[0m[Pipeline] // withEnv
+[8mha:////4PjBpoAwiDMTTTyEBJoS8XLtQkP6vCjxYnEiJoSaNvTUAAAAoh+LCAAAAAAAAP9tjTESgjAQRT84FraWHiI0WDlWthkaTxAhxkBmF5NFqDyRV/MOMjJj5a/+e817vbFOEUeOTrWWOk+p9qoPg5ufGjl218CjavmiaqbEwarKjhU39rRgxWKxLMux0thYqgMnT06w1a15mCIYcsVZ4uwOGrlv7ngi03NZTJQvTBG729Akpl/nbwBT3wvyfSnIyg9Tz1S8vQAAAA==[0m[Pipeline] }
+[8mha:////4DoMXBx2qNRZzsaFVeoTWnMsg1SsS8ePX5O3SZp7hdkcAAAAox+LCAAAAAAAAP9tjTESgjAQRT84FraWHiIUDpVjZZuh8QQRYgxkdjFZhMoTeTXvICMzVv7qv9e81xvrFHHk6FRrqfOUaq/6MLj5qZFjdw08qpYvqmZKHKyq7FhxY08LViwWy7IcK42NpTpw8uQEW92ahymCIVecJc7uoJH75o4nMj2XxUT5whSxuw1NYvp1/gYw9b0gL0tBtv8AQHNQH70AAAA=[0m[Pipeline] // node
+[8mha:////4DWu3TN4PUsd1zjTG27tWseAdk4dsyghZtK2KmF3ykwzAAAApB+LCAAAAAAAAP9tjTEOwjAQBDdBFLSUPMKRkKBBVLRWGl5gEmOcWHfBvpBUvIiv8QciIlGx1c4083pjmSKOHJ1qLLWeUuVVF3o3PTVwbK+BB9XwRVVMiYNVpR1Kru1pxpLFYl6WY6GxslQFTp6cYK0b8zBFMOSKs8TJHTRyX9/xRKanspgoXxgjNre+Tky/zt8Axq4T5Lu9INt+AAY59y+9AAAA[0m[Pipeline] End of Pipeline
+ERROR: Ansible playbook execution failed
+Finished: FAILURE

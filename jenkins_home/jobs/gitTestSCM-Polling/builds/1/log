@@ -1,0 +1,29 @@
+Started by user [8mha:////4HrJlDGTiFVfYBRCfaiU2NLlDPYF5PMA+y0tbxfvjZ1KAAAAmh+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzBEgY+/dLi1CL94vzS3NLsjFQAbSb7OMMAAAA=[0mSoumitra Mukherji
+Running as SYSTEM
+Building in workspace /var/jenkins_home/workspace/gitTest
+The recommended git tool is: NONE
+No credentials specified
+ > git rev-parse --is-inside-work-tree # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url https://github.com/soumukhe/jenkinsTest.git # timeout=10
+Fetching upstream changes from https://github.com/soumukhe/jenkinsTest.git
+ > git --version # timeout=10
+ > git --version # 'git version 2.20.1'
+ > git fetch --tags --force --progress -- https://github.com/soumukhe/jenkinsTest.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git rev-parse refs/remotes/origin/master^{commit} # timeout=10
+Checking out Revision 3a6c34e99ec768c7bf5ef3e7dfab15791b1d64d6 (refs/remotes/origin/master)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 3a6c34e99ec768c7bf5ef3e7dfab15791b1d64d6 # timeout=10
+Commit message: "first"
+First time build. Skipping changelog.
+[8mha:////4AvMJBlfsrKM4vABf/uuE51aiwdDhhVlTa2oAi8iEDs/AAAAqx+LCAAAAAAAAP9b85aBtbiIQSujNKU4P0+vIKc0PTOvWC8xrzgzOT8nv0gvMbkkEyjhCKb88ktSdwVsu2efuqidiYHRh4EDIu2ZUsIg5JOVWJaon5OYl64fXFKUmZduXVHEIAU1ODk/rzg/J1XPGUKDDGKAAEYmBoaKghIGFRMTw7QkgzQLXVNzQ0tdk9RkY13LJEsTXVNLCwMTy6QUi8RkQwBsXE6lrwAAAA==[0m[gitTest] $ ansible-playbook /myJenkinsData/Ansible/APIC/3.add_bd.yaml -i /myJenkinsData/Ansible/APIC/hosts -f 5 -e host=dmzapic8 -e username=ansible -e tenant=sm-Jenkins-Ansible -e private_key=./certs/ansible.key -e certificate_name=ansible -e vrf_name=SMVRF1 -e bdname=smBD1
+
+PLAY [Add a tenant] ************************************************************
+
+TASK [Creating BD] *************************************************************
+[0;32mok: [dmzapic8 -> localhost][0m
+[0;32m[0m
+PLAY RECAP *********************************************************************
+[0;32mdmzapic8[0m                   : [0;32mok=1   [0m changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
+Finished: SUCCESS

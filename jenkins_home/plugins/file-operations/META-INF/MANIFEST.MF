@@ -1,0 +1,19 @@
+Manifest-Version: 1.0
+Archiver-Version: Plexus Archiver
+Created-By: Apache Maven
+Built-By: root
+Build-Jdk: 1.8.0_232
+Extension-Name: file-operations
+Specification-Title: File Operations Plugin
+Implementation-Title: file-operations
+Implementation-Version: 1.11
+Group-Id: sp.sd
+Short-Name: file-operations
+Long-Name: File Operations Plugin
+Url: https://github.com/jenkinsci/file-operations-plugin
+Plugin-Version: 1.11
+Hudson-Version: 1.651.3
+Jenkins-Version: 1.651.3
+Plugin-Dependencies: job-dsl:1.41;resolution:=optional,structs:1.6
+Plugin-Developers: Suresh Kumar:pskumar448:pskumar448@gmail.com
+

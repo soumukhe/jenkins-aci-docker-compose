@@ -1,0 +1,32 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<Tag plugin="workflow-support@3.8">
+  <node class="cps.n.StepStartNode" plugin="workflow-cps@2.90">
+    <parentIds>
+      <string>9</string>
+    </parentIds>
+    <id>10</id>
+    <descriptorId>org.jenkinsci.plugins.workflow.steps.EnvStep</descriptorId>
+  </node>
+  <actions>
+    <s.a.LogStorageAction/>
+    <cps.a.ArgumentsActionImpl plugin="workflow-cps@2.90">
+      <arguments>
+        <entry>
+          <string>overrides</string>
+          <list>
+            <string>GIT_BRANCH=origin/master</string>
+            <string>GIT_COMMIT=3d7440a8a9c1ec4a4a236927bba7f07ffddb93f7</string>
+            <string>GIT_PREVIOUS_COMMIT=4226b967bbd602cec1d68f3e73b7f9b5a2c0765d</string>
+            <string>GIT_PREVIOUS_SUCCESSFUL_COMMIT=460a83d5267415b7aed7e387f740b522b570ee8e</string>
+            <string>GIT_URL=https://github.com/soumukhe/jenkins-NAE-cicd-.git</string>
+          </list>
+        </entry>
+      </arguments>
+      <sensitiveVariables/>
+      <isUnmodifiedBySanitization>true</isUnmodifiedBySanitization>
+    </cps.a.ArgumentsActionImpl>
+    <wf.a.TimingAction plugin="workflow-api@2.42">
+      <startTime>1616719512115</startTime>
+    </wf.a.TimingAction>
+  </actions>
+</Tag>

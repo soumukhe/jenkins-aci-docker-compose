@@ -1,0 +1,27 @@
+---
+- name: Add a tenant
+  hosts: '{{ host }}'
+  gather_facts: no
+  connection: local
+
+  #  vars_files:
+  #    - apic-vars.yaml 
+
+
+  tasks:
+
+    - name: Create ANP
+      aci_ap:
+        app_profile_name: "{{app_profile_name}}"
+        tenant: "{{tenant}}"
+        host: "{{host}}"
+        username: "{{username}}"
+        private_key:  "{{ private_key }}"
+        certificate_name: "{{ certificate_name }}"
+        validate_certs: no
+        use_proxy: no
+      delegate_to: localhost
+
+
+
+# usage: ansible-playbook  add_ANP.yaml -i hosts -vvv

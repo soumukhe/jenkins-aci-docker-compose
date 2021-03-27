@@ -1,0 +1,8 @@
+localhost ansible_connection=local nae_host=173.36.219.125 validate_certs='no' nae_port=443 nae_username=ansible.github.ci nae_password=4C%269@RJKxdzneXpDd
+[nae]
+localhost
+
+[nae:vars]
+apic_hostname=173.36.219.25
+apic_username=ansible_github_ci
+apic_password="sJ94G92#8dq2hx*K4qh"

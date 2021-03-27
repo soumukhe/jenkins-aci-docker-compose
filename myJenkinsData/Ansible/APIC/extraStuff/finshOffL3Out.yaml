@@ -1,0 +1,29 @@
+- name: test x509 certs with non-admin user
+  hosts: "dmzapic8"
+  connection: local
+  gather_facts:  false
+
+  vars_files:
+    - apic-vars.yaml 
+
+
+  tasks:
+    - name:  Creating Tenant
+      cisco.aci.aci_rest:
+        host: dmzapic8
+        username: "ansible"
+        use_ssl: yes
+        private_key: "{{ private_key }}"
+        certificate_name: "{{ certificate_name}}"
+        use_proxy: no
+        validate_certs: no
+        path: /api/node/mo/uni/tn-sm-ansible-T1/out-Site1-L3Out.json
+        method: post
+        src: l3outpost.json
+      delegate_to: localhost
+
+
+
+
+# usage: ansible-playbook  finshOffL3Out.yaml -i hosts -vvv
+# aci_schema – Manage schemas:  https://docs.ansible.com/ansible/2.9

@@ -1,0 +1,30 @@
+---
+
+- name: Make a Tenant
+  hosts: mso
+  connection: local
+  gather_facts: false
+
+  vars_files:
+    - external_vars.yml
+
+  tasks:
+    - name: Add a new tenant
+      cisco.mso.mso_tenant:
+        host: "{{ host }}"
+        username: "{{ username }}"
+        password: "{{ password }}"
+        login_domain: "{{ login_domain }}"
+        tenant: "{{ tenant }}"
+        users: "{{ users }}"
+        display_name: "{{ display_name }}"
+        sites: "{{ sites }}"
+        description: This tenant is a test tenanat created with Ansible
+        #state: present
+        state: absent
+        validate_certs: "no"
+        use_proxy: false
+      delegate_to: localhost
+# usage: ansible-playbook --ask-vault-pass 1a.CreateTenant-dmzrad.yaml -i hosts -vvv
+# usage: ansible-playbook --vault-id vaultPass 1a.CreateTenant-dmzrad.yaml -i hosts -vvv
+# # Module Listing:  https://docs.ansible.com/ansible/latest/modules/mso_tenant_module.html#mso-tenant-module

@@ -1,0 +1,9 @@
+---
+- import_playbook: 1ha.AddL3OutSite1Only.yaml
+- import_playbook: 1hb.finishOffL3OutAPIC.yaml
+#usage: ansible-playbook --vault-id vaultPass 1h.consolidated.yaml -i hosts -vvv
+#Note:
+#Please run this playbook instead of the components
+#Please make sure to add the cert to APIC for usr ansible (for APIC only)
+#Please make sure to have the json file for L3Out in this directory also
+#

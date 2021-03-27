@@ -1,0 +1,32 @@
+Started by an SCM change
+Running as SYSTEM
+Building in workspace /var/jenkins_home/workspace/gitTestWebhook
+The recommended git tool is: NONE
+No credentials specified
+Cloning the remote Git repository
+Cloning repository https://github.com/soumukhe/jenkinsTest.git
+ > /usr/bin/git init /var/jenkins_home/workspace/gitTestWebhook # timeout=10
+Fetching upstream changes from https://github.com/soumukhe/jenkinsTest.git
+ > /usr/bin/git --version # timeout=10
+ > git --version # 'git version 2.20.1'
+ > /usr/bin/git fetch --tags --force --progress -- https://github.com/soumukhe/jenkinsTest.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > /usr/bin/git config remote.origin.url https://github.com/soumukhe/jenkinsTest.git # timeout=10
+ > /usr/bin/git config --add remote.origin.fetch +refs/heads/*:refs/remotes/origin/* # timeout=10
+Avoid second fetch
+ > /usr/bin/git rev-parse refs/remotes/origin/master^{commit} # timeout=10
+Checking out Revision db78d3e07c9d4fc4615af27b026a35bce6adf3c8 (refs/remotes/origin/master)
+ > /usr/bin/git config core.sparsecheckout # timeout=10
+ > /usr/bin/git checkout -f db78d3e07c9d4fc4615af27b026a35bce6adf3c8 # timeout=10
+Commit message: "ch"
+First time build. Skipping changelog.
+[8mha:////4E/fOUb4mzmxBNTKnboB0oMn4qPjuum7FgmA9G5FNZprAAAAqx+LCAAAAAAAAP9b85aBtbiIQSujNKU4P0+vIKc0PTOvWC8xrzgzOT8nv0gvMbkkEyjhCKb88ktSdwVsu2efuqidiYHRh4EDIu2ZUsIg5JOVWJaon5OYl64fXFKUmZduXVHEIAU1ODk/rzg/J1XPGUKDDGKAAEYmBoaKghIGlTSzxERj0zRz3aTE5DRdE3NLY90kg8Q03UQL81RLc2PzRMPkRACWXUesrwAAAA==[0m[gitTestWebhook] $ ansible-playbook /var/jenkins_home/workspace/gitTestWebhook/addbd.yaml -i /var/jenkins_home/workspace/gitTestWebhook/hosts -f 5
+
+PLAY [Add a tenant] ************************************************************
+
+TASK [Creating BD] *************************************************************
+[0;32mok: [dmzapic8 -> localhost][0m
+[0;32m[0m
+PLAY RECAP *********************************************************************
+[0;32mdmzapic8[0m                   : [0;32mok=1   [0m changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
+Finished: SUCCESS

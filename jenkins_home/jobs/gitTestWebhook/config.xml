@@ -1,0 +1,68 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description>This is using the Poll SCM method,   Jenkins is polling my github repo every minute</description>
+  <keepDependencies>false</keepDependencies>
+  <properties>
+    <com.coravy.hudson.plugins.github.GithubProjectProperty plugin="github@1.33.1">
+      <projectUrl>https://github.com/soumukhe/jenkinsWebhook/</projectUrl>
+      <displayName></displayName>
+    </com.coravy.hudson.plugins.github.GithubProjectProperty>
+  </properties>
+  <scm class="hudson.plugins.git.GitSCM" plugin="git@4.7.0">
+    <configVersion>2</configVersion>
+    <userRemoteConfigs>
+      <hudson.plugins.git.UserRemoteConfig>
+        <url>https://github.com/soumukhe/jenkinsWebhook.git</url>
+      </hudson.plugins.git.UserRemoteConfig>
+    </userRemoteConfigs>
+    <branches>
+      <hudson.plugins.git.BranchSpec>
+        <name>*/master</name>
+      </hudson.plugins.git.BranchSpec>
+    </branches>
+    <doGenerateSubmoduleConfigurations>false</doGenerateSubmoduleConfigurations>
+    <submoduleCfg class="empty-list"/>
+    <extensions/>
+  </scm>
+  <canRoam>true</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers>
+    <com.cloudbees.jenkins.GitHubPushTrigger plugin="github@1.33.1">
+      <spec></spec>
+    </com.cloudbees.jenkins.GitHubPushTrigger>
+  </triggers>
+  <concurrentBuild>false</concurrentBuild>
+  <builders>
+    <org.jenkinsci.plugins.ansible.AnsiblePlaybookBuilder plugin="ansible@1.1">
+      <playbook>/var/jenkins_home/workspace/gitTestWebhook/addbd.yaml</playbook>
+      <inventory class="org.jenkinsci.plugins.ansible.InventoryPath">
+        <path>/var/jenkins_home/workspace/gitTestWebhook/hosts</path>
+      </inventory>
+      <limit></limit>
+      <tags></tags>
+      <skippedTags></skippedTags>
+      <startAtTask></startAtTask>
+      <credentialsId></credentialsId>
+      <vaultCredentialsId></vaultCredentialsId>
+      <become>false</become>
+      <becomeUser></becomeUser>
+      <sudo>false</sudo>
+      <sudoUser></sudoUser>
+      <forks>5</forks>
+      <unbufferedOutput>true</unbufferedOutput>
+      <colorizedOutput>true</colorizedOutput>
+      <disableHostKeyChecking>false</disableHostKeyChecking>
+      <additionalParameters></additionalParameters>
+      <copyCredentialsInWorkspace>false</copyCredentialsInWorkspace>
+    </org.jenkinsci.plugins.ansible.AnsiblePlaybookBuilder>
+  </builders>
+  <publishers/>
+  <buildWrappers>
+    <hudson.plugins.ansicolor.AnsiColorBuildWrapper plugin="ansicolor@0.7.5">
+      <colorMapName>xterm</colorMapName>
+    </hudson.plugins.ansicolor.AnsiColorBuildWrapper>
+  </buildWrappers>
+</project>

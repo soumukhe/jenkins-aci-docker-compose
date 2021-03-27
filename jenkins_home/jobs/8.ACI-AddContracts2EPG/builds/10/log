@@ -1,0 +1,30 @@
+Started by user [8mha:////4BqKMJIbD7tx/2mxod/TotshDosuXl20ZLwsebMOuInLAAAAlx+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzWEgZu/dLi1CL95Mzi5HwAVHxmPsAAAAA=[0mcisco
+Running as SYSTEM
+Building in workspace /var/jenkins_home/workspace/8.ACI-AddContracts2EPG
+[8mha:////4E36OaREAopyctGblDYGAP9Ra41szGh4Kdd2IR6S96fZAAAAqx+LCAAAAAAAAP9b85aBtbiIQSujNKU4P0+vIKc0PTOvWC8xrzgzOT8nv0gvMbkkEyjhCKb88ktSdwVsu2efuqidiYHRh4EDIu2ZUsIg5JOVWJaon5OYl64fXFKUmZduXVHEIAU1ODk/rzg/J1XPGUKDDGKAAEYmBoaKghIGFYMk09Rks+Q03SSL5CRdE8OkRN3ERAsz3VQzI9NUAwPTVJNEAwCFvgF2rwAAAA==[0m[8.ACI-AddContracts2EPG] $ ansible-playbook /myJenkinsData/Ansible/APIC/8.add-Contracts2EPG.yaml -i /myJenkinsData/Ansible/APIC/hosts -f 5 -e host=dmzapic8 -e username=ansible -e tenant=sm-Jenkins-Ansible -e private_key=./certs/ansible.key -e certificate_name=ansible -e vrf_name=$vrf_name -e bdname=$BDNAME -e bdIp=$bdIp -e bdMask=$bdMask -e app_profile_name=smApplication1 -e filter_name=$filter_name -e entry_name=$entry_name -e contract_name=C1 -e subject_name=$subject_name -e ether_type1=$ether_type1 -e ip_protocol1=$ip_protocol1 -e dst_port1=$dst_port1 -e reverse_filter=$reverse_filter -e epg_name=dbEPG -e contract_type=provider
+
+PLAY [Add a tenant] ************************************************************
+
+TASK [Create web_epg contract] *************************************************
+[0;31mfatal: [dmzapic8 -> localhost]: FAILED! => {"changed": false, "error": {"code": "102", "text": "configured object ((Dn0)) not found Dn0=uni/tn-sm-Jenkins-Ansible/ap-smApplication1/epg-dbEPG/rsprov-C1, "}, "msg": "APIC Error 102: configured object ((Dn0)) not found Dn0=uni/tn-sm-Jenkins-Ansible/ap-smApplication1/epg-dbEPG/rsprov-C1, "}[0m
+[0;31m[0m
+PLAY RECAP *********************************************************************
+[0;31mdmzapic8[0m                   : ok=0    changed=0    unreachable=0    [0;31mfailed=1   [0m skipped=0    rescued=0    ignored=0   
+
+FATAL: command execution failed
+hudson.AbortException: Ansible playbook execution failed
+	at org.jenkinsci.plugins.ansible.AnsiblePlaybookBuilder.perform(AnsiblePlaybookBuilder.java:262)
+	at org.jenkinsci.plugins.ansible.AnsiblePlaybookBuilder.perform(AnsiblePlaybookBuilder.java:232)
+	at jenkins.tasks.SimpleBuildStep.perform(SimpleBuildStep.java:123)
+	at hudson.tasks.BuildStepCompatibilityLayer.perform(BuildStepCompatibilityLayer.java:80)
+	at hudson.tasks.BuildStepMonitor$1.perform(BuildStepMonitor.java:20)
+	at hudson.model.AbstractBuild$AbstractBuildExecution.perform(AbstractBuild.java:803)
+	at hudson.model.Build$BuildExecution.build(Build.java:197)
+	at hudson.model.Build$BuildExecution.doRun(Build.java:163)
+	at hudson.model.AbstractBuild$AbstractBuildExecution.run(AbstractBuild.java:513)
+	at hudson.model.Run.execute(Run.java:1906)
+	at hudson.model.FreeStyleBuild.run(FreeStyleBuild.java:43)
+	at hudson.model.ResourceController.execute(ResourceController.java:97)
+	at hudson.model.Executor.run(Executor.java:429)
+ERROR: Ansible playbook execution failed
+Finished: FAILURE

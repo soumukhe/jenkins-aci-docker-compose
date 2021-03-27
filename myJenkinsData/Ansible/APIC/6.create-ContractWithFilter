@@ -1,0 +1,85 @@
+---
+- name: Add a tenant
+  hosts: '{{ host }}'
+  gather_facts: no
+  connection: local
+
+  #  vars_files:
+  #    - apic-vars.yaml 
+
+
+  tasks:
+
+    - name: Create a Filter
+      aci_filter:
+        filter_name:  "{{filter_name}}"
+        tenant: "{{tenant}}"
+        host: "{{host}}"
+        username: "{{username}}"
+        private_key:  "{{ private_key }}"
+        certificate_name: "{{ certificate_name }}"
+        validate_certs: no
+        use_proxy: no
+      delegate_to: localhost
+
+    - name: Create Filter Entry
+      aci_filter_entry:
+        filter_name:  "{{filter_name}}"
+        filter_entry: "{{entry_name}}"
+        tenant: "{{tenant}}"
+        ether_type: "{{ ether_type1 }}"
+        ip_protocol: "{{ ip_protocol1 }}"
+        dst_port: "{{ dst_port1 }}"
+        host: "{{host}}"
+        username: "{{username}}"
+        private_key:  "{{ private_key }}"
+        certificate_name: "{{ certificate_name }}"
+        validate_certs: no
+        state: present
+        use_proxy: no
+      delegate_to: localhost
+
+    - name:  Create a Tenant Contract
+      aci_contract:
+        tenant: "{{tenant}}"
+        contract_name: "{{contract_name}}"
+        scope: tenant
+        host: "{{host}}"
+        username: "{{username}}"
+        private_key:  "{{ private_key }}"
+        certificate_name: "{{ certificate_name }}"
+        validate_certs: no
+        use_proxy: no
+      delegate_to: localhost
+
+    - name:  Create Contract Subjects
+      aci_contract_subject:
+        subject_name: "{{subject_name}}"
+        contract_name: "{{contract_name}}"
+        tenant: "{{tenant}}"
+        reverse_filter: "{{ reverse_filter }}"
+        host: "{{host}}"
+        username: "{{username}}"
+        private_key:  "{{ private_key }}"
+        certificate_name: "{{ certificate_name }}"
+        validate_certs: no
+        use_proxy: no
+      delegate_to: localhost
+
+    - name:  Bind Subject to filter
+      aci_contract_subject_to_filter:
+        subject_name: "{{subject_name}}"
+        contract_name: "{{contract_name}}"
+        tenant: "{{tenant}}"
+        filter_name:  "{{filter_name}}"
+        host: "{{host}}"
+        username: "{{username}}"
+        private_key:  "{{ private_key }}"
+        certificate_name: "{{ certificate_name }}"
+        validate_certs: no
+        use_proxy: no
+      delegate_to: localhost
+
+
+
+# usage: ansible-playbook  createContractWithFilters.yaml -i hosts -vvv

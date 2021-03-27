@@ -1,0 +1,32 @@
+---
+action: post
+username:  ansible
+protocol: https
+validate_certs:  no
+host: dmzapic8
+private_key: ./certs/ansible.key
+certificate_name: ansible       # this is the certificate name you put in APIC 
+
+tenant:  smAnsibleTest
+vrf_name:  smVRF
+bdname:    smBD1
+bdIp:     10.10.1.1
+bdMask:   255.255.255.0
+app_profile_name: Application1
+
+filter_name:  Filter1
+entry_name:   Filter1_entry
+contract_name:  C1
+subject_name:  Subject1
+
+ether_type1:  ip
+ip_protocol1: tcp
+dst_port1:  22
+
+reverse_filter:  yes
+epg_name: webEPG
+
+
+contract_type:  provider
+
+vmm_domain:  myVMMDomain

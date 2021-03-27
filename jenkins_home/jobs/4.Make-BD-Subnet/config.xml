@@ -1,0 +1,147 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description></description>
+  <keepDependencies>false</keepDependencies>
+  <properties>
+    <hudson.model.ParametersDefinitionProperty>
+      <parameterDefinitions>
+        <hudson.model.StringParameterDefinition>
+          <name>username</name>
+          <description>username for APIC</description>
+          <defaultValue>ansible</defaultValue>
+          <trim>false</trim>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>tenant</name>
+          <defaultValue>sm-Jenkins-Ansible</defaultValue>
+          <trim>false</trim>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>private_key</name>
+          <description>Location of Private Key ( the public key was configured in APIC for that user)</description>
+          <defaultValue>./certs/ansible.key</defaultValue>
+          <trim>false</trim>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>certificate_name</name>
+          <description>This is the name of the Certificate when saving the private key in APIC</description>
+          <defaultValue>ansible</defaultValue>
+          <trim>false</trim>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.ChoiceParameterDefinition>
+          <name>host</name>
+          <description>You could use IP also.  dmzapic8 and dmzapic7 were put in /etc/hosts of jenkins container by docker-compose.yaml.  Please see &quot;extra-hosts:&quot; in docker-compose.yaml</description>
+          <choices class="java.util.Arrays$ArrayList">
+            <a class="string-array">
+              <string>dmzapic8</string>
+              <string>dmzapic7</string>
+            </a>
+          </choices>
+        </hudson.model.ChoiceParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>bdname</name>
+          <description>Add your BD Name here</description>
+          <defaultValue>smBD1</defaultValue>
+          <trim>false</trim>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>bdIp</name>
+          <description>Add the BD Default Gateway IP here</description>
+          <defaultValue>10.10.10.1</defaultValue>
+          <trim>false</trim>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>bdMask</name>
+          <description>Enter the bd Mask in  bit mask format.  e.g. 255.255.255.0 should be added as 24</description>
+          <defaultValue>24</defaultValue>
+          <trim>false</trim>
+        </hudson.model.StringParameterDefinition>
+      </parameterDefinitions>
+    </hudson.model.ParametersDefinitionProperty>
+  </properties>
+  <scm class="hudson.scm.NullSCM"/>
+  <canRoam>true</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers/>
+  <concurrentBuild>false</concurrentBuild>
+  <builders>
+    <org.jenkinsci.plugins.ansible.AnsiblePlaybookBuilder plugin="ansible@1.1">
+      <playbook>/myJenkinsData/Ansible/APIC/4.add_subnet.yaml</playbook>
+      <inventory class="org.jenkinsci.plugins.ansible.InventoryPath">
+        <path>/myJenkinsData/Ansible/APIC/hosts</path>
+      </inventory>
+      <limit></limit>
+      <tags></tags>
+      <skippedTags></skippedTags>
+      <startAtTask></startAtTask>
+      <credentialsId></credentialsId>
+      <vaultCredentialsId></vaultCredentialsId>
+      <become>false</become>
+      <becomeUser></becomeUser>
+      <sudo>false</sudo>
+      <sudoUser></sudoUser>
+      <forks>5</forks>
+      <unbufferedOutput>true</unbufferedOutput>
+      <colorizedOutput>true</colorizedOutput>
+      <disableHostKeyChecking>false</disableHostKeyChecking>
+      <additionalParameters></additionalParameters>
+      <copyCredentialsInWorkspace>false</copyCredentialsInWorkspace>
+      <extraVars>
+        <org.jenkinsci.plugins.ansible.ExtraVar>
+          <key>host</key>
+          <value>$host</value>
+          <hidden>false</hidden>
+        </org.jenkinsci.plugins.ansible.ExtraVar>
+        <org.jenkinsci.plugins.ansible.ExtraVar>
+          <key>username</key>
+          <value>$username</value>
+          <hidden>false</hidden>
+        </org.jenkinsci.plugins.ansible.ExtraVar>
+        <org.jenkinsci.plugins.ansible.ExtraVar>
+          <key>tenant</key>
+          <value>$tenant</value>
+          <hidden>false</hidden>
+        </org.jenkinsci.plugins.ansible.ExtraVar>
+        <org.jenkinsci.plugins.ansible.ExtraVar>
+          <key>private_key</key>
+          <value>$private_key</value>
+          <hidden>false</hidden>
+        </org.jenkinsci.plugins.ansible.ExtraVar>
+        <org.jenkinsci.plugins.ansible.ExtraVar>
+          <key>certificate_name</key>
+          <value>$certificate_name</value>
+          <hidden>false</hidden>
+        </org.jenkinsci.plugins.ansible.ExtraVar>
+        <org.jenkinsci.plugins.ansible.ExtraVar>
+          <key>vrf_name</key>
+          <value>$vrf_name</value>
+          <hidden>false</hidden>
+        </org.jenkinsci.plugins.ansible.ExtraVar>
+        <org.jenkinsci.plugins.ansible.ExtraVar>
+          <key>bdname</key>
+          <value>$BDNAME</value>
+          <hidden>false</hidden>
+        </org.jenkinsci.plugins.ansible.ExtraVar>
+        <org.jenkinsci.plugins.ansible.ExtraVar>
+          <key>bdIp</key>
+          <value>$bdIp</value>
+          <hidden>false</hidden>
+        </org.jenkinsci.plugins.ansible.ExtraVar>
+        <org.jenkinsci.plugins.ansible.ExtraVar>
+          <key>bdMask</key>
+          <value>$bdMask</value>
+          <hidden>false</hidden>
+        </org.jenkinsci.plugins.ansible.ExtraVar>
+      </extraVars>
+    </org.jenkinsci.plugins.ansible.AnsiblePlaybookBuilder>
+  </builders>
+  <publishers/>
+  <buildWrappers>
+    <hudson.plugins.ansicolor.AnsiColorBuildWrapper plugin="ansicolor@0.7.5">
+      <colorMapName>xterm</colorMapName>
+    </hudson.plugins.ansicolor.AnsiColorBuildWrapper>
+  </buildWrappers>
+</project>

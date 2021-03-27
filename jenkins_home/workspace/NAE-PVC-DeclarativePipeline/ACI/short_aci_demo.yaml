@@ -1,0 +1,87 @@
+---
+
+
+
+- name: Add a BD with Subnet to tenant
+  hosts: 'dmzapic8'
+  collections: 
+    - cisco.aci
+  gather_facts: no
+  connection: local
+  vars:
+    host:       "dmzapic8"
+    tenant:      "sm-Jenkins-Ansible"
+    vrf_name:    "SMVRF1"
+    bd:          "newBD10"
+    username:   "ansible"
+    private_key: "/myJenkinsData/Ansible/APIC/certs/ansible.key"
+    certificate_name: "ansible" 
+    gateway: "10.10.100.1"
+
+
+
+  #  vars_files:
+  #    - apic-vars.yaml 
+
+
+  tasks:
+
+          
+    - name: ensure tenant exists
+      cisco.aci.aci_tenant:
+        host: "{{ host }}"
+        username: "{{ username }}"
+        private_key:  "{{ private_key }}"
+        certificate_name: "{{ certificate_name }}"
+        validate_certs: no        
+        tenant: '{{ tenant }}'
+        state: present
+        output_path: 'config.json'
+      delegate_to: localhost        
+
+    - name: ensure context for tenant exists
+      cisco.aci.aci_vrf:
+        host: "{{ host }}"
+        username: "{{ username }}"
+        private_key:  "{{ private_key }}"
+        certificate_name: "{{ certificate_name }}"
+        validate_certs: no             
+        tenant: '{{ tenant }}'
+        vrf_name: '{{ vrf_name }}'
+        state: present
+        output_path: 'config.json'
+      delegate_to: localhost
+
+    - name: Creating BD
+      cisco.aci.aci_bd:
+        host: "{{ host }}"
+        username: "{{ username }}"
+        private_key:  "{{ private_key }}"
+        certificate_name: "{{ certificate_name }}"
+        validate_certs: no
+        tenant: "{{ tenant }}"
+        vrf_name: "{{ vrf_name }}"
+        bd: "{{ bd }}"
+        state: present
+        use_proxy: no
+        output_path: 'config.json'
+      delegate_to: localhost
+
+
+    - name: Create a subnet
+      cisco.aci.aci_bd_subnet:
+        host: "{{ host }}"
+        username: "{{ username }}"
+        private_key:  "{{ private_key }}"
+        certificate_name: "{{ certificate_name }}"
+        validate_certs: no
+        tenant: "{{ tenant }}"
+        bd: "{{ bd }}"
+        gateway: "{{ gateway }}"
+        mask: "24"
+        state: present
+        use_proxy: no
+        output_path: 'config.json'
+      delegate_to: localhost
+
+

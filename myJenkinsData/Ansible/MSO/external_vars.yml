@@ -1,0 +1,58 @@
+---
+action: post
+username:  ansible
+
+password: !vault |
+          $ANSIBLE_VAULT;1.1;AES256
+          61363838366265383566643164663361353437656130633738316432396633626632383363333161
+          3536303765316362653461643937303862366236376439360a336138666232666666353664323863
+          64343334333136393732393636656365636636366331643563393331633166653133343539393838
+          6262626263643934640a653466376535376534373138396233376638623633333930306530333230
+          6664
+
+users: [ ansible ]
+protocol: https
+validate_certs:  no
+host: dmzmso
+login_domain: dmzrad
+# 
+tenant: sm-jenkins-ansible
+display_name: sm-JenkinsAnsible
+#
+schema: sm-schema1-jenkins-ansible
+template: SM-Template1-jenkins-ansible
+sites: [ "DMZ-RCDN-Fabric7", "DMZ-RCDN-Site1"]
+site1: DMZ-RCDN-Fabric7
+site2: DMZ-RCDN-Site1
+#
+vrf: sm-VRF1-jenkins-ansible
+#
+bd: sm-BD1-ansible
+#
+anp: ANP1
+epg1: web
+epg2: app
+epg3: db
+#
+filter1: filter1
+ethertype1: unspecified
+contract1: web2app
+contract2: app2db
+#
+vmm_F7: Fab7-Leaf101-VMM
+vmm_F8: Fab-8-VMM
+
+
+# Above are the Variables and values that are used by Ansible Scripts for ACI
+# Below are the Variables for APIC (pysical) to complete L3Out config
+
+private_key: /home/aciadmin/Ansible/ansible-scripts/MSO/apic-certs/ansible.key
+certificate_name: ansible       # this is the certificate name you put in APIC 
+
+
+
+
+
+
+
+

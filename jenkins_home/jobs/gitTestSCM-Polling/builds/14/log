@@ -1,0 +1,32 @@
+Started by an SCM change
+Running as SYSTEM
+Building in workspace /var/jenkins_home/workspace/gitTestSCM-Polling
+The recommended git tool is: NONE
+No credentials specified
+Cloning the remote Git repository
+Cloning repository https://github.com/soumukhe/jenkinsTest.git
+ > /usr/bin/git init /var/jenkins_home/workspace/gitTestSCM-Polling # timeout=10
+Fetching upstream changes from https://github.com/soumukhe/jenkinsTest.git
+ > /usr/bin/git --version # timeout=10
+ > git --version # 'git version 2.20.1'
+ > /usr/bin/git fetch --tags --force --progress -- https://github.com/soumukhe/jenkinsTest.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > /usr/bin/git config remote.origin.url https://github.com/soumukhe/jenkinsTest.git # timeout=10
+ > /usr/bin/git config --add remote.origin.fetch +refs/heads/*:refs/remotes/origin/* # timeout=10
+Avoid second fetch
+ > /usr/bin/git rev-parse refs/remotes/origin/master^{commit} # timeout=10
+Checking out Revision 8c1c2e67cafc9288dd14c0de38b9e3c07e1f4aa1 (refs/remotes/origin/master)
+ > /usr/bin/git config core.sparsecheckout # timeout=10
+ > /usr/bin/git checkout -f 8c1c2e67cafc9288dd14c0de38b9e3c07e1f4aa1 # timeout=10
+Commit message: "change"
+ > /usr/bin/git rev-list --no-walk 69948d8857b479c86cabbc8486d40ecf1071dd12 # timeout=10
+[8mha:////4MAtNVUlnDbBf7cYVeTUIFuygZS4DtEYJVb4NClKoc5OAAAAqx+LCAAAAAAAAP9b85aBtbiIQSujNKU4P0+vIKc0PTOvWC8xrzgzOT8nv0gvMbkkEyjhCKb88ktSdwVsu2efuqidiYHRh4EDIu2ZUsIg5JOVWJaon5OYl64fXFKUmZduXVHEIAU1ODk/rzg/J1XPGUKDDGKAAEYmBoaKghIGlVRLY1MjwzRL3VST5FRdkxQjQ10LUwMz3cSUZAMzi6S01DTzNAAr/5/VrwAAAA==[0m[gitTestSCM-Polling] $ ansible-playbook /var/jenkins_home/workspace/gitTest/addbd.yaml -i /var/jenkins_home/workspace/gitTest/hosts -f 5
+
+PLAY [Add a tenant] ************************************************************
+
+TASK [Creating BD] *************************************************************
+[0;32mok: [dmzapic8 -> localhost][0m
+[0;32m[0m
+PLAY RECAP *********************************************************************
+[0;32mdmzapic8[0m                   : [0;32mok=1   [0m changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
+Finished: SUCCESS

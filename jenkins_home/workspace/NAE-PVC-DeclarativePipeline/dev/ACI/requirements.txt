@@ -1,0 +1,9 @@
+jsonpatch
+jsonpath-ng
+PyYAML
+requests
+requests-toolbelt
+urllib3
+xmljson
+zipp
+filelock

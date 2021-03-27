@@ -1,0 +1,10 @@
+- hosts: test
+  
+  
+  tasks:
+    - debug:
+         msg: "{{ MSG }}}"
+
+
+
+# Usage:  ansible-playbook play.yaml -i hosts -vvv 

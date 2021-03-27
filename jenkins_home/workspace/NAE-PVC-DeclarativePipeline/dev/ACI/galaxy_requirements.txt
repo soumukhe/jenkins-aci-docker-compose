@@ -1,0 +1,4 @@
+---
+collections:
+- name: cisco.nae
+- name: cisco.aci
