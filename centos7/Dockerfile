@@ -1,4 +1,4 @@
-FROM soumukhe/remote_host-centos7-demo
+FROM soumukhe/centos:7
 
 
 RUN yum update -y && \
