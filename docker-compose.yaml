@@ -11,14 +11,14 @@ services:
 
      restart: always
      ports:
-       -  "10000:8080"
+       -  "10000:8080"       # I've used port 10000 here, because I'm already using port 80 on host for other things
      volumes:
        -  "$PWD/jenkins_home:/var/jenkins_home"
        - "$PWD/myJenkinsData:/myJenkinsData:rw"
      networks:
          - net
      extra_hosts:
-       - "dmzmso dmzmso.localdomain:10.1.100.94"
+       - "dmzmso dmzmso.localdomain:10.1.100.94"      #  if you are not using MSO, you can delete this line
        - "dmzapic8.localdomain dmzapic8:10.0.0.58"
        - "dmzapic7.localdomain dmzapic7:10.0.7.19"
 
