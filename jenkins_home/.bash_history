@@ -325,3 +325,19 @@ cat /etc/hosts
 ls
 ############################################################################################################################################################################################
 exit
+ls
+ping remote-host
+ping remote_host
+ssh -i remote-key remote_user@remote_host
+ssh-keygen -f "/var/jenkins_home/.ssh/known_hosts" -R "remote_host"
+ssh -i remote-key remote_user@remote_host
+ssh -i remote-key remote_user@remote_host
+ls
+chmod 0400 remote-key 
+ssh -i remote-key remote_user@remote_host
+cat remote-key 
+ls
+ls ~/.ssh
+cp remote-key ~/.ssh
+ssh remote_user@remote_host
+exit

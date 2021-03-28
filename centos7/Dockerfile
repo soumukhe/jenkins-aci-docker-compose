@@ -1,4 +1,4 @@
-FROM centos:7
+FROM soumukhe/remote_host-centos7-demo
 
 
 RUN yum update -y && \
@@ -17,8 +17,6 @@ COPY remote-key.pub /home/remote_user/.ssh/authorized_keys
 
 RUN chown -R remote_user:remote_user -R /home/remote_user/.ssh && \
     chmod -R 600 /home/remote_user/.ssh/authorized_keys
-
-RUN yum install -y initscripts
 
 
 RUN /usr/sbin/sshd-keygen

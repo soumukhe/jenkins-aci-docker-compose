@@ -5,7 +5,7 @@
       <hostname>remote_host</hostname>
       <username>remote_user</username>
       <port>22</port>
-      <credentialId>remote_user</credentialId>
+      <credentialId>40d42349-9295-4047-823d-972561d74697</credentialId>
       <serverAliveInterval>0</serverAliveInterval>
       <timeout>0</timeout>
       <pty>false</pty>

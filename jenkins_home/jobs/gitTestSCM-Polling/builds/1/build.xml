@@ -36,16 +36,16 @@
     </hudson.plugins.git.util.BuildData>
     <hudson.scm.SCMRevisionState_-None/>
     <hudson.plugins.ansicolor.action.ColorizedAction plugin="ansicolor@0.7.5">
-      <id>bc745a18-f772-4d58-bdf0-4fd22ce96867</id>
+      <id>0171ae02-2528-4ca2-a41e-0f0b522cb066</id>
       <colorMapName>xterm</colorMapName>
       <command>START</command>
     </hudson.plugins.ansicolor.action.ColorizedAction>
   </actions>
-  <queueId>271</queueId>
-  <timestamp>1616922846484</timestamp>
-  <startTime>1616922846491</startTime>
-  <result>FAILURE</result>
-  <duration>4079</duration>
+  <queueId>282</queueId>
+  <timestamp>1616929266610</timestamp>
+  <startTime>1616929266614</startTime>
+  <result>SUCCESS</result>
+  <duration>4189</duration>
   <charset>UTF-8</charset>
   <keepLog>false</keepLog>
   <builtOn></builtOn>

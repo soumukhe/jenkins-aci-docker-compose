@@ -1,4 +1,4 @@
-FROM soumukhe/jenkins-aci-ansible
+FROM soumukhe/jenkins-ansible-aci-demo
 
 USER root   
 

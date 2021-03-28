@@ -8,17 +8,17 @@
   gather_facts: no
   vars:
     nae_login: &nae_login
-        host: "put IP of NAE here"
-        username: admin
-        password: "put password of NAE here"
-    PreChangeAnalysisName: Jenkins3_27-1    # this will be the name of the Pre Change Verification in NAE
+        host: 10.0.7.11           # Make sure to make the GIT Repo that you use a private Repo.  Currently,  NAE does not support certificates, so we have to hard code password
+        username: ansible         #  This will get addressed in the new release of NAE with full integration with ND
+        password: ansible101      #  Also,  in Jenkins, you need to create credentials for git for private repo (for public repo you don't need password)
+    PreChangeAnalysisName: Jenkins3_27-1
     validate_certs: False
   
   tasks:
     - name: Create a pre-change analysis
       cisco.nae.nae_prechange:
         <<: *nae_login
-        ag_name: "DMZ-RCDN-Site1" #  make sure to have the correct site name as shown in NAE
+        ag_name: "DMZ-RCDN-Site1"
         name: "{{ PreChangeAnalysisName }}"
         state: present
         verify: true
@@ -27,7 +27,7 @@
     - name: Get PCV Result
       cisco.nae.nae_prechange:
         <<: *nae_login
-        ag_name: "DMZ-RCDN-Site1"  #  make sure to have the correct site name as shown in NAE
+        ag_name: "DMZ-RCDN-Site1"
         name: "{{ PreChangeAnalysisName }}"
         state: query
         verify: True
