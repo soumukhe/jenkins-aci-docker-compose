@@ -1,7 +1,0 @@
-Started by user [8mha:////4HrJlDGTiFVfYBRCfaiU2NLlDPYF5PMA+y0tbxfvjZ1KAAAAmh+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzBEgY+/dLi1CL94vzS3NLsjFQAbSb7OMMAAAA=[0mSoumitra Mukherji
-Running as SYSTEM
-Building in workspace /var/jenkins_home/workspace/myFirstJob
-[myFirstJob] $ /bin/sh -xe /tmp/jenkins905281720674638703.sh
-+ /tmp/script.sh
-Hello, 
-Finished: SUCCESS

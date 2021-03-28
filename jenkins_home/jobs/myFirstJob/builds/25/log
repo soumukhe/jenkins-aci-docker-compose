@@ -1,8 +1,0 @@
-Started by user [8mha:////4BqKMJIbD7tx/2mxod/TotshDosuXl20ZLwsebMOuInLAAAAlx+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzWEgZu/dLi1CL95Mzi5HwAVHxmPsAAAAA=[0mcisco
-Running as SYSTEM
-Building in workspace /var/jenkins_home/workspace/myFirstJob
-[myFirstJob] $ /bin/sh -xe /tmp/jenkins6381806702890944328.sh
-+ /myJenkinsData/script.sh Soumitra Mukherji true
-/tmp/jenkins6381806702890944328.sh: 2: /tmp/jenkins6381806702890944328.sh: /myJenkinsData/script.sh: not found
-Build step 'Execute shell' marked build as failure
-Finished: FAILURE
