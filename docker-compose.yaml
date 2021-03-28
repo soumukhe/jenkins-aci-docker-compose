@@ -25,7 +25,7 @@ services:
 
 
    remote_host:
-          container_name: remote_host-centos7
+          container_name: remote_host
           image:  remote_host-centos7-demo       # this is the name of the image to be built
           build:
             context: centos7
