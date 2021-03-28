@@ -22,4 +22,5 @@ openssl req -new -newkey rsa:2048 -days 35600 -nodes -x509 -keyout ansible.key -
 mv  ./ansible*  $PWD/myJenkinsData/Ansible/APIC/certs/
 
 echo cut and paste the below certificat contents to ansible user on APIC
+echo the path to this certificate is: $PWD/myJenkinsData/Ansible/APIC/certs/ansible.crt
 cat $PWD/myJenkinsData/Ansible/APIC/certs/ansible.crt
