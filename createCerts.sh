@@ -21,6 +21,6 @@ echo the contents of the public certificate to the APIC user.  Please name the c
 openssl req -new -newkey rsa:2048 -days 35600 -nodes -x509 -keyout ansible.key -out ansible.crt -subj '/CN=aci/O=aci/C=US'
 mv  ./ansible*  $PWD/myJenkinsData/Ansible/APIC/certs/
 
-echo cut and paste the below certificat contents to ansible user on APIC
+echo cut and paste the below certificate contents to ansible user on APIC
 echo the path to this certificate is: $PWD/myJenkinsData/Ansible/APIC/certs/ansible.crt
 cat $PWD/myJenkinsData/Ansible/APIC/certs/ansible.crt
