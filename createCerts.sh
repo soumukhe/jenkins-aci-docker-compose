@@ -5,7 +5,7 @@ echo ...
 ssh-keygen -t rsa -N "" -f remote-key
 chmod 400 remote-key* 
 cp remote-key* $PWD/myJenkinsData/Ansible/centos7/
-mv remote-key* $PWD/jenkins-aci-docker-compose/centos7/
+mv remote-key* $PWD/centos7/
 echo  "***********************************************************"
 echo the path for this key is $PWD/myJenkinsData/Ansible/centos7/
 echo you will need to copy the contents of the private key to Jenkins remote_user at a later time
