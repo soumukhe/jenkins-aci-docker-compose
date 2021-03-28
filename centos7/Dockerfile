@@ -1,4 +1,4 @@
-FROM soumukhe/centos:7
+FROM centos:7
 
 
 RUN yum update -y && \
